@@ -12,7 +12,7 @@ public class User {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private Long userId;
     private String name;
     private String street;
     private String postalCode;
@@ -23,11 +23,11 @@ public class User {
     private String password;
 
     public Long getId() {
-        return id;
+        return userId;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.userId = id;
     }
 
     public String getName() {
