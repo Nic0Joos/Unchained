@@ -25,18 +25,18 @@ public class CostTableService {
         while (scanner.hasNext()) {
             for (int i = 0; i<CostTable.length; i++) {
                 String[] line = scanner.nextLine().trim().split(",");
-                    for  (int j = 0; j<line.length; j++) {
-                        CostTable[j][i] = Double.parseDouble(line[j]);
-                    }
+                for  (int j = 0; j<line.length; j++) {
+                    CostTable[i][j] = Double.parseDouble(line[j]);
+                }
             }
         }
 
         if (pallets >= 13 || km >= 361){
             throw new Exception("Too much pallets used or too many kilometers to ship");
         } else if(km % 30 == 0) { //Check for threshold (because up to and including 30)
-            shippingCosts = CostTable[pallets-1][(km/30)-1];
+            shippingCosts = CostTable[(km/30)-1][pallets-1];
         } else { //all other values that are not a threshold value
-            shippingCosts = CostTable[pallets-1][(km/30)];
+            shippingCosts = CostTable[km/30][pallets-1];
         }
         return shippingCosts;
     }
