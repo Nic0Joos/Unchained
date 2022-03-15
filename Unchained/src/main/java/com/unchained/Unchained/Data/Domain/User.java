@@ -16,7 +16,7 @@ public class User {
     private String name;
     private String street;
     private int zipcode;
-    private int city;
+    private String city;
     @Email
     private String email;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
@@ -35,8 +35,8 @@ public class User {
     public int getZipcode() { return zipcode; }
     public void setZipcode(int zipcode) { this.zipcode = zipcode; }
 
-    public int getCity() { return city; }
-    public void setCity(int city) { this.city = city; }
+    public String getCity() { return city; }
+    public void setCity(String city) { this.city = city; }
 
     public String getPassword() {
         String transientPassword = this.password;
