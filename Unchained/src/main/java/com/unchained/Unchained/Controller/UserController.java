@@ -1,4 +1,4 @@
-package com.unchained.Unchained.api;
+package com.unchained.Unchained.Controller;
 
 
 import com.unchained.Unchained.Data.Domain.User;
@@ -12,7 +12,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 
 @Controller
-public class UserEndpoint {
+public class UserController {
 
     @Autowired
     UserService userService;
