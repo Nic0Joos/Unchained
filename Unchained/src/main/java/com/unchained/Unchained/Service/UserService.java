@@ -19,7 +19,7 @@ public class UserService {
 
 
     public void saveUser(@Valid User user) throws Exception {
-        if (user.getId() == null) {
+        if (user.getUserId() == null) {
             if (userRepository.findByEmail(user.getEmail()) != null ) {
                 throw new Exception("User email already exists!");
             }

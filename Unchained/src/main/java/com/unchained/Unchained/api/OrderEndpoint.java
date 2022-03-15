@@ -37,7 +37,7 @@ public class OrderEndpoint {
         return orderService.findAllOrders();
     }
 
-    //Put and Delete of orders
+    //Put and Delete of orders forbidden
     @PutMapping
     public Exception putOrder() {
         return new ResponseStatusException(HttpStatus.FORBIDDEN);

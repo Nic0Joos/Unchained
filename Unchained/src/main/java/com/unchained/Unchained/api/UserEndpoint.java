@@ -32,7 +32,7 @@ public class UserEndpoint {
     @PutMapping(path = "/profile")
     public ResponseEntity<User> putUser(@RequestBody User user) {
         try {
-            user.setId(userService.getCurrentUser().getId());
+            user.setUserId(userService.getCurrentUser().getUserId());
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
             //TODO: log to a file if error
