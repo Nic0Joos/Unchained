@@ -1,9 +1,8 @@
 package com.unchained.Unchained.Data.Domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
@@ -12,11 +11,14 @@ public class Order {
     @Id
     @GeneratedValue
     private Long orderId;
-    //Relation from https://www.baeldung.com/hibernate-one-to-many
     @OneToMany(mappedBy = "Order")
     private Set<Product> products;
     private Long shippingCost;
     private Long orderPrice;
+    @ManyToOne
+    @JsonIgnore
+    private User user;
+
 
     public Long getOrderId() {
         return orderId;
@@ -48,5 +50,13 @@ public class Order {
 
     public void setOrderPrice(Long orderPrice) {
         this.orderPrice = orderPrice;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
