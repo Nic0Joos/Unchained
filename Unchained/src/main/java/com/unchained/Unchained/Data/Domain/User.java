@@ -15,60 +15,28 @@ public class User {
     private Long userId;
     private String name;
     private String street;
-    private String postalCode;
-    private int place;
+    private int zipcode;
+    private String city;
     @Email
     private String email;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
-    public Long getId() {
-        return userId;
-    }
+    //getter and setter
+    public Long getUserId() { return userId; }
+    public void setUserId(Long userId) { this.userId = userId; }
 
-    public void setId(Long id) {
-        this.userId = id;
-    }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-    public String getName() {
-        return name;
-    }
+    public String getStreet() { return street; }
+    public void setStreet(String street) { this.street = street; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public int getZipcode() { return zipcode; }
+    public void setZipcode(int zipcode) { this.zipcode = zipcode; }
 
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public String getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
-
-    public int getPlace() {
-        return place;
-    }
-
-    public void setPlace(int place) {
-        this.place = place;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public String getCity() { return city; }
+    public void setCity(String city) { this.city = city; }
 
     public String getPassword() {
         String transientPassword = this.password;
