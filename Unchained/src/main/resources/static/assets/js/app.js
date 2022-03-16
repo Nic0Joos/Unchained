@@ -1,1 +1,0 @@
-var WarehouseLocation = "Peter-Merian-Strasse 86, 4052 Basel"
