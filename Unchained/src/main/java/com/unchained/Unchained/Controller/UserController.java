@@ -2,6 +2,7 @@ package com.unchained.Unchained.Controller;
 
 
 import com.unchained.Unchained.Data.Domain.User;
+import com.unchained.Unchained.Service.UserDetailsServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +15,7 @@ import org.springframework.web.server.ResponseStatusException;
 public class UserController {
 
     @Autowired
-    UserService userService;
+    UserDetailsServiceImp userService;
 
     @PostMapping(path = "/user/register")
     public ResponseEntity<Void> postRegister(@RequestBody User user) {
