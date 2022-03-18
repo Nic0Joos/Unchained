@@ -1,10 +1,12 @@
-/* from Andreas Martin FHNW
+/*
+From Andreas Martin FHNW
 https://github.com/DigiPR/digipr-acrm
  */
 
 package com.unchained.Unchained.security.web;
 
 import org.springframework.security.web.util.matcher.RequestMatcher;
+
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.HashSet;

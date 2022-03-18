@@ -1,4 +1,5 @@
-/* from Andreas Martin FHNW
+/*
+From Andreas Martin FHNW
 https://github.com/DigiPR/digipr-acrm
  */
 
