@@ -14,7 +14,6 @@ public class Admin {
     @GeneratedValue
     private Long adminId;
     private String name;
-    private String city;
     @Email
     private String email;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
@@ -34,14 +33,6 @@ public class Admin {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
     }
 
     public String getEmail() {
