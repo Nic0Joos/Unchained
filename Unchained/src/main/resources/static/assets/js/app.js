@@ -1,3 +1,6 @@
+<!-- -->
+
+serviceEndpointURL = window.location.protocol + "//" + window.location.host
 
 
 function register(name, street, ZIPCode, city, email, password, callbackSuccess, callbackError) {
@@ -37,7 +40,7 @@ function login(email, password, remember, callback) {
         data: JSON.stringify({
             "email": email,
             "password": password,
-            "remember": remember
+            "remember": false
         }),
         success: function (data, textStatus, response) {
             callback(true);
