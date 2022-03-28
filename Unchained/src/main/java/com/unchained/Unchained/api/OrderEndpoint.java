@@ -38,12 +38,12 @@ public class OrderEndpoint {
     }
 
     //Put and Delete of orders forbidden
-    @PutMapping
+    @PutMapping(path="/order/{orderID}")
     public Exception putOrder() {
         return new ResponseStatusException(HttpStatus.FORBIDDEN);
     }
 
-    @DeleteMapping
+    @DeleteMapping(path="/order/{orderID}")
     public Exception deleteOrder() {
         return new ResponseStatusException(HttpStatus.FORBIDDEN);
     }
