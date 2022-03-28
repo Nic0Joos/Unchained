@@ -25,7 +25,7 @@ public class ProductEndpoint {
         try {
             productService.saveProduct(product);
         } catch (Exception e) {
-
+            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
         }
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{productId}").buildAndExpand(product.getProductId()).toUri();
