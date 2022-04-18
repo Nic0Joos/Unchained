@@ -9,7 +9,7 @@ import java.text.DecimalFormat;
 import java.util.Scanner;
 
 @Service
-public class CostTableService {
+public class CostRequestService {
 
 
     public double getCosts(int pallets, int km) throws Exception {

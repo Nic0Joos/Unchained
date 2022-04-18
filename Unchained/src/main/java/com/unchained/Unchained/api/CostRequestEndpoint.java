@@ -1,7 +1,7 @@
 package com.unchained.Unchained.api;
 
 import com.unchained.Unchained.Data.Domain.CostRequest;
-import com.unchained.Unchained.Service.CostTableService;
+import com.unchained.Unchained.Service.CostRequestService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,17 +13,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(path = "/api")
-public class CostTableEndpoint {
+public class CostRequestEndpoint {
 
     @Autowired
-    private CostTableService costTableService;
+    private CostRequestService costRequestService;
 
-    Logger logger = LoggerFactory.getLogger(CostTableEndpoint.class);
+    Logger logger = LoggerFactory.getLogger(CostRequestEndpoint.class);
 
     @GetMapping(path="/costrequest")
     public @ResponseBody CostRequest getShippingCosts(@RequestBody CostRequest costRequest){
         try {
-            costRequest.setPrice(costTableService.getCosts(costRequest.getPallets(), costRequest.getKm()));
+            costRequest.setPrice(costRequestService.getCosts(costRequest.getPallets(), costRequest.getKm()));
         } catch (Exception e) {
             logger.error(e.toString());
         }
