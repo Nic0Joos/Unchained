@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class CostRequest {
 
+    @JsonIgnore
     private double price;
     private int km;
     private int pallets;
