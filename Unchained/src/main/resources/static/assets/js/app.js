@@ -3,6 +3,14 @@
 serviceEndpointURL = window.location.protocol + "//" + window.location.host
 MapBoxToken = "pk.eyJ1Ijoibmljb2pvb3MiLCJhIjoiY2wyNWQ2YnIzMDhwODNrbnB4Mmo5Z2dldSJ9.RyWuwPKIlfp1Sr6Ftw-Pwg"
 
+function getTravelDistance(city, street, responseJSON) {
+    $.ajax({
+
+    })
+}
+
+
+
 function register(name, street, ZIPCode, city, email, password, callbackSuccess, callbackError) {
     $.ajax({
         type: "POST",
@@ -15,6 +23,7 @@ function register(name, street, ZIPCode, city, email, password, callbackSuccess,
             "name": name,
             "street": street,
             "city": city,
+            "TravelDistance": ,
             "ZIPCode": ZIPCode,
             "email": email,
             "password": password
@@ -51,3 +60,4 @@ function login(email, password, remember, callback) {
         }
     });
 }
+
