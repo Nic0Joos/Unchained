@@ -14,6 +14,8 @@ import java.util.List;
 @Validated
 public class OrderService {
 
+    //TODO: Log to file
+
     @Autowired
     private OrderRepository orderRepository;
 

@@ -11,6 +11,8 @@ import java.util.List;
 @Service
 public class ProductService {
 
+    //TODO: Log to file
+
     @Autowired
     private ProductRepository productRepository;
 
