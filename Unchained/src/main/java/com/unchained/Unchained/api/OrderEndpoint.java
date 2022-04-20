@@ -16,6 +16,8 @@ import java.util.List;
 @RequestMapping (path = "/api")
 public class OrderEndpoint {
 
+    //TODO: Logging to file, Check if put / delete work like this
+
     @Autowired
     private OrderService orderService;
 
