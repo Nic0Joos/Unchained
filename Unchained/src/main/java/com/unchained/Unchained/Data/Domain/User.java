@@ -37,7 +37,6 @@ public class User {
     public int getZIPCode() {
         return ZIPCode;
     }
-
     public void setZIPCode(int ZIPCode) {
         this.ZIPCode = ZIPCode;
     }
@@ -48,7 +47,6 @@ public class User {
     public int getTraveldistance() {
         return Traveldistance;
     }
-
     public void setTraveldistance(int traveldistance) {
         Traveldistance = traveldistance;
     }
@@ -56,7 +54,6 @@ public class User {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -74,7 +71,6 @@ public class User {
     public boolean isAdmin() {
         return isAdmin;
     }
-
     public void setAdmin(boolean admin) {
         isAdmin = admin;
     }

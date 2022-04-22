@@ -9,11 +9,10 @@ public class CostRequest {
     private int km;
     private int pallets;
 
-
+    //getter and setter
     public double getPrice() {
         return price;
     }
-
     public void setPrice(double price) {
         this.price = price;
     }
@@ -21,7 +20,6 @@ public class CostRequest {
     public int getKm() {
         return km;
     }
-
     public void setKm(int km) {
         this.km = km;
     }
@@ -29,7 +27,6 @@ public class CostRequest {
     public int getPallets() {
         return pallets;
     }
-
     public void setPallets(int pallets) {
         this.pallets = pallets;
     }

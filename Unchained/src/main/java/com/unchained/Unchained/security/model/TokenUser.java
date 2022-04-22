@@ -24,7 +24,6 @@ public class TokenUser extends User {
     public String getEmail() {
         return email;
     }
-
     public String getRemember() {
         return remember;
     }
