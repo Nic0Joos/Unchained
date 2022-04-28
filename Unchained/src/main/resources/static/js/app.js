@@ -65,6 +65,6 @@ function login(email, password, remember, callback) {
 
 //TODO: Function to get products from the server
 
-//TODO: Function to put profile for admin and user
+//TODO: Function to put profile for user
 
 //TODO: Function to get user profile

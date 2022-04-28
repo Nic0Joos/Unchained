@@ -21,10 +21,10 @@ public class TokenSecurityProperties {
     public static String HEADER_NAME = "Authorization";
     public static String COOKIE_NAME = "AUTHORISATION";
 
-    //getter and setter
     public String getSecret() {
         return SECRET;
     }
+
     public void setSecret(String secret) {
         SECRET = secret;
     }
@@ -32,6 +32,7 @@ public class TokenSecurityProperties {
     public String getCookieType() {
         return COOKIE_TYPE;
     }
+
     public void setCookieType(String cookieType) {
         COOKIE_TYPE = cookieType;
     }
@@ -39,6 +40,7 @@ public class TokenSecurityProperties {
     public String getBearerType() {
         return BEARER_TYPE;
     }
+
     public void setBearerType(String bearerType) {
         BEARER_TYPE = bearerType;
     }
@@ -46,6 +48,7 @@ public class TokenSecurityProperties {
     public long getRememberExpirationTime() {
         return REMEMBER_EXPIRATION_TIME;
     }
+
     public void setRememberExpirationTime(long rememberExpirationTime) {
         REMEMBER_EXPIRATION_TIME = rememberExpirationTime;
     }
@@ -53,6 +56,7 @@ public class TokenSecurityProperties {
     public long getSessionExpirationTime() {
         return SESSION_EXPIRATION_TIME;
     }
+
     public void setSessionExpirationTime(long sessionExpirationTime) {
         SESSION_EXPIRATION_TIME = sessionExpirationTime;
     }
@@ -60,6 +64,7 @@ public class TokenSecurityProperties {
     public long getBearerExpirationTime() {
         return BEARER_EXPIRATION_TIME;
     }
+
     public void setBearerExpirationTime(long bearerExpirationTime) {
         BEARER_EXPIRATION_TIME = bearerExpirationTime;
     }
@@ -67,6 +72,7 @@ public class TokenSecurityProperties {
     public String getBearerTokenPrefix() {
         return BEARER_TOKEN_PREFIX;
     }
+
     public void setBearerTokenPrefix(String bearerTokenPrefix) {
         BEARER_TOKEN_PREFIX = bearerTokenPrefix;
     }
@@ -74,6 +80,7 @@ public class TokenSecurityProperties {
     public String getHeaderName() {
         return HEADER_NAME;
     }
+
     public void setHeaderName(String headerName) {
         HEADER_NAME = headerName;
     }
@@ -81,6 +88,7 @@ public class TokenSecurityProperties {
     public String getCookieName() {
         return COOKIE_NAME;
     }
+
     public void setCookieName(String cookieName) {
         COOKIE_NAME = cookieName;
     }

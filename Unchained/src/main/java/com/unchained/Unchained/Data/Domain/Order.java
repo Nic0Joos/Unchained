@@ -19,10 +19,11 @@ public class Order {
     @JsonIgnore
     private User user;
 
-    //getter and setter
+
     public Long getOrderId() {
         return orderId;
     }
+
     public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
@@ -30,6 +31,7 @@ public class Order {
     public Set<Product> getProducts() {
         return products;
     }
+
     public void setProducts(Set<Product> products) {
         this.products = products;
     }
@@ -37,6 +39,7 @@ public class Order {
     public Long getShippingCost() {
         return shippingCost;
     }
+
     public void setShippingCost(Long shippingCost) {
         this.shippingCost = shippingCost;
     }
@@ -44,6 +47,7 @@ public class Order {
     public Long getOrderPrice() {
         return orderPrice;
     }
+
     public void setOrderPrice(Long orderPrice) {
         this.orderPrice = orderPrice;
     }
@@ -51,6 +55,7 @@ public class Order {
     public User getUser() {
         return user;
     }
+
     public void setUser(User user) {
         this.user = user;
     }

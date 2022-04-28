@@ -1,4 +1,4 @@
-package com.unchained.Unchained.api;
+package com.unchained.Unchained.Controller;
 
 import com.unchained.Unchained.Data.Domain.Product;
 import com.unchained.Unchained.Service.ProductService;
