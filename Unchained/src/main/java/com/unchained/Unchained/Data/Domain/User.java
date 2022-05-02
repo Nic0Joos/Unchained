@@ -17,10 +17,12 @@ public class User {
     private String street;
     private int ZIPCode;
     private String city;
+    private int Traveldistance;
     @Email
     private String email;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
+    private boolean isAdmin;
 
     //getter and setter
     public Long getUserId() { return userId; }
@@ -32,16 +34,26 @@ public class User {
     public String getStreet() { return street; }
     public void setStreet(String street) { this.street = street; }
 
-    public int getZipcode() { return ZIPCode; }
-    public void setZipcode(int zipcode) { this.ZIPCode = zipcode; }
+    public int getZIPCode() {
+        return ZIPCode;
+    }
+    public void setZIPCode(int ZIPCode) {
+        this.ZIPCode = ZIPCode;
+    }
 
     public String getCity() { return city; }
     public void setCity(String city) { this.city = city; }
 
+    public int getTraveldistance() {
+        return Traveldistance;
+    }
+    public void setTraveldistance(int traveldistance) {
+        Traveldistance = traveldistance;
+    }
+
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -54,5 +66,12 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
     }
 }

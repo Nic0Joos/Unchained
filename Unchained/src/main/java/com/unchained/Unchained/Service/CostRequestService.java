@@ -11,6 +11,7 @@ import java.util.Scanner;
 @Service
 public class CostRequestService {
 
+    //TODO Log to file
 
     public double getCosts(int pallets, int km) throws Exception {
 

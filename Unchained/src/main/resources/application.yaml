@@ -1,9 +1,0 @@
-logging:
-  level:
-    ROOT: DEBUG
-  pattern:
-    file: "*%d{yyyy-MM-dd HH:mm:ss} %msg%n"
-  file:
-    name: src/main/resources/logger.log
-    max-size: 10MB
-    clean-history-on-start: true
