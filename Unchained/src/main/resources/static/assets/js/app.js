@@ -1,4 +1,4 @@
-<!-- -->
+
 
 serviceEndpointURL = window.location.protocol + "//" + window.location.host
 MapBoxToken = "pk.eyJ1Ijoibmljb2pvb3MiLCJhIjoiY2wyNWQ2YnIzMDhwODNrbnB4Mmo5Z2dldSJ9.RyWuwPKIlfp1Sr6Ftw-Pwg"
@@ -23,7 +23,7 @@ function register(name, street, ZIPCode, city, email, password, callbackSuccess,
             "name": name,
             "street": street,
             "city": city,
-            "TravelDistance": ,
+            "TravelDistance": 1,
             "ZIPCode": ZIPCode,
             "email": email,
             "password": password
@@ -61,3 +61,25 @@ function login(email, password, remember, callback) {
     });
 }
 
+function getCost(km, pallets, callback){
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        headers: {
+            "X-XSRF-TOKEN": getCookie("XSRF-TOKEN")
+        },
+        url: serviceEndpointURL + "/login",
+        data: JSON.stringify({
+            "km": km,
+            "pallets": pallets
+        }),
+        success: function (data, textStatus, response) {
+            callback(true);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR, textStatus, errorThrown);
+            callback(false);
+        }
+    });
+
+}
