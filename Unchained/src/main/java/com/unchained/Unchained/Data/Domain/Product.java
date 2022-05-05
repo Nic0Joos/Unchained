@@ -12,8 +12,15 @@ public class Product {
     private Long productId;
     private String productName;
     private Long maxAmount;
-    private Long minPalletSpace;
-    private Long price;
+    private Double minPalletSpace;
+    private Double price;
+
+    public Product(String productName, Long maxAmount, Double minPalletSpace, Double price) {
+        this.productName = productName;
+        this.maxAmount = maxAmount;
+        this.minPalletSpace = minPalletSpace;
+        this.price = price;
+    }
 
     public Long getProductId() {
         return productId;
@@ -39,19 +46,19 @@ public class Product {
         this.maxAmount = maxAmount;
     }
 
-    public Long getMinPalletSpace() {
+    public Double getMinPalletSpace() {
         return minPalletSpace;
     }
 
-    public void setMinPalletSpace(Long minPalletSpace) {
+    public void setMinPalletSpace(Double minPalletSpace) {
         this.minPalletSpace = minPalletSpace;
     }
 
-    public Long getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Long price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 }

@@ -22,7 +22,7 @@ public class User {
     private String email;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
-    private boolean isAdmin;
+
 
     //getter and setter
     public Long getUserId() { return userId; }
@@ -68,10 +68,5 @@ public class User {
         this.password = password;
     }
 
-    public boolean isAdmin() {
-        return isAdmin;
-    }
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
-    }
+
 }

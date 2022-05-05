@@ -1,7 +1,3 @@
-<<<<<<< HEAD:Unchained/src/main/resources/static/assets/js/app.js
-
-=======
->>>>>>> 5901ca0f50af64dc263cae051e370bcb4b99bae4:Unchained/src/main/resources/static/js/app.js
 
 WarehouseLocation = "Peter Merian-Strasse 86, 4052 Basel"
 serviceEndpointURL = window.location.protocol + "//" + window.location.host
@@ -20,10 +16,7 @@ function register(name, street, ZIPCode, city, email, password, callbackSuccess,
             "name": name,
             "street": street,
             "city": city,
-<<<<<<< HEAD:Unchained/src/main/resources/static/assets/js/app.js
             "TravelDistance": 1,
-=======
->>>>>>> 5901ca0f50af64dc263cae051e370bcb4b99bae4:Unchained/src/main/resources/static/js/app.js
             "ZIPCode": ZIPCode,
             "TravelDistance": /*TODO: Retrieve distance between  Warehouse location and users adress via MapBox/TomTom/GoogleApi */,
             "email": email,
