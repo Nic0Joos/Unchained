@@ -14,7 +14,6 @@ function getCookie(name) {
 }
 
 
-
 function register(name, street, ZIPCode, city, email, password, callbackSuccess, callbackError) {
     $.ajax({
         type: "POST",
