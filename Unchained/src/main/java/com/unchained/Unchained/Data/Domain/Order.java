@@ -11,7 +11,7 @@ public class Order {
     @Id
     @GeneratedValue
     private Long orderId;
-    @OneToMany(mappedBy = "Order")
+    @OneToMany(mappedBy = "orderId")
     private Set<Product> products;
     private Long shippingCost;
     private Long orderPrice;

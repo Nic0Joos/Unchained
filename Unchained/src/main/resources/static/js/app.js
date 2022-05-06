@@ -1,7 +1,18 @@
+/*Most code was adapted from Internet Technology demo project*/
 
 WarehouseLocation = "Peter Merian-Strasse 86, 4052 Basel"
 serviceEndpointURL = window.location.protocol + "//" + window.location.host
-MapBoxToken = "pk.eyJ1Ijoibmljb2pvb3MiLCJhIjoiY2wyNWQ2YnIzMDhwODNrbnB4Mmo5Z2dldSJ9.RyWuwPKIlfp1Sr6Ftw-Pwg"
+GoogleApiKey = "AIzaSyDVIjrHMBFBVfO8jLyZy_8WXiYFTSZOSBc"
+
+function getURLParameter(name) {
+    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null;
+}
+
+function getCookie(name) {
+    var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    if (match) return match[2];
+}
+
 
 
 function register(name, street, ZIPCode, city, email, password, callbackSuccess, callbackError) {
@@ -56,7 +67,19 @@ function login(email, password, remember, callback) {
     });
 }
 
-<<<<<<< HEAD:Unchained/src/main/resources/static/assets/js/app.js
+function validateLogin(callback) {
+    $.ajax({
+        type: "HEAD",
+        url: serviceEndpointURL + "/validate",
+        success: function (data, textStatus, response) {
+            callback(true);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            callback(false);
+        }
+    });
+}
+
 function getCost(km, pallets, callback){
     $.ajax({
         type: "POST",
@@ -79,18 +102,83 @@ function getCost(km, pallets, callback){
     });
 
 }
-=======
-//TODO: Function to check if a user is an admin and then enable the admin pile in header (all sites)
 
-//TODO: Function to make an ajax post method to the server for products
+function postOrder(productA, productB, productC, productD, shippingCosts, orderPrice, callbackSuccess, callbackError) {
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        headers: {
+            "X-XSRF-TOKEN": getCookie("XSRF-TOKEN")
+        },
+        url: serviceEndpointURL + "order",
+        data: JSON.stringfy({
+            "productA": productA,
+            "productB": productB,
+            "productC": productC,
+            "productD": productD,
+            "shippingCosts": shippingCosts,
+            "orderPrice": orderPrice
+        }),
+        success: function (data, textStatus, response) {
+            callbackSuccess(true);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR, textStatus, errorThrown);
+            callbackError(jqXHR.responseJSON.message);
+        }
+    });
+}
 
-//TODO: Function to make an ajax post method to the server for orders
 
-//TODO: Function to retrieve the shipping costs according to the costRequestService
+function getProducts(callback) {
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: serviceEndpointURL + "/api/customer",
+        success: function (data, textStatus, response) {
+            callback(data);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR, textStatus, errorThrown);
+        }
+    });
+}
 
-//TODO: Function to get products from the server
 
-//TODO: Function to put profile for user
+function getProfile(callback) {
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: serviceEndpointURL + "/profile",
+        success: function (data, textStatus, response) {
+            callback(data);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR, textStatus, errorThrown);
+        }
+    });
+}
 
-//TODO: Function to get user profile
->>>>>>> 5901ca0f50af64dc263cae051e370bcb4b99bae4:Unchained/src/main/resources/static/js/app.js
+function putProfile(street, ZIPCode, city, callbackSuccess, callbackError) {
+    $.ajax({
+        type: "PUT",
+        contentType: "application/json",
+        headers: {
+            "X-XSRF-TOKEN": getCookie("XSRF-TOKEN")
+        },
+        url: serviceEndpointURL + "/profile",
+        data: JSON.stringify({
+            "street": street,
+            "ZIPCode": ZIPCode,
+            "city": city
+        }),
+        success: function (data, textStatus, response) {
+            callbackSuccess(true);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR, textStatus, errorThrown);
+            callbackError(jqXHR.responseJSON.message);
+        }
+    });
+}
+

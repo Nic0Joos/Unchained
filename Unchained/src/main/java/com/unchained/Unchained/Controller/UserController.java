@@ -40,7 +40,7 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping
+    @GetMapping(path = "/profile")
     public @ResponseBody User getProfile() {
         return userService.getCurrentUser();
         //TODO:Log to file

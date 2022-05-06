@@ -10,8 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(path = "/")
 public class IndexController {
 
-    @GetMapping()
-    public ModelAndView getIndexProperties(final ModelMap model) {
-        return new ModelAndView("index", model);
-    }
+
+
 }
