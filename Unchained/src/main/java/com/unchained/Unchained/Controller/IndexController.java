@@ -10,6 +10,9 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(path = "/")
 public class IndexController {
 
-
+    @GetMapping
+    public String getIndexView(){
+        return "index.html";
+    }
 
 }
