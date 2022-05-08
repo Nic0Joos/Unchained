@@ -43,7 +43,6 @@ public class UserController {
     @GetMapping(path = "/profile")
     public @ResponseBody User getProfile() {
         return userService.getCurrentUser();
-        //TODO:Log to file
     }
 
 }

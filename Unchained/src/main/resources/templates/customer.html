@@ -78,9 +78,25 @@
     <script src="../static/js/vanilla-zoom.js"></script>
     <script src="../static/js/theme.js"></script>
 
-<!-- TODO: Function to retrieve the profile and display it
+    <script language="JavaScript">
+        $(document).ready(function () {
+            getProfile(function (result) {
+                $('input[street=street]').val(result["street"]);
+                $('input[ZIPCode=ZIPCode]').val(result["ZIPCode"]);.
+                $('input[city=city]').val(result["city"]);
+            });
 
- TODO: Function to put profile when the user changes something (Use app.js post profile) -->
+            $("#form").submit(function (event) {
+                putProfile($('input[street=street]').val(), $('input[ZIPCode=ZIPCode]').val(), $('input[city=city]').val(), $('input[password=password]').val(), function (result) {
+                    window.location.replace("/user");
+                }, function (error) {
+                    window.alert("Something went wrong!");
+                });
+                event.preventDefault();
+            });
+        });
+    </script>
+
 </body>
 
 </html>
