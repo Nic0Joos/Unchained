@@ -34,8 +34,6 @@
                     <h2 class="text-info">Pricing Table</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
                 </div>
-
-                <--Start of template of product display --!>
                 <div class="row justify-content-center">
                     <div class="col-md-5 col-lg-5">
                         <div class="clean-pricing-item">
@@ -98,9 +96,6 @@
                         </div>
                     </div>
                 </div>
-                <--End of template of product display --!>
-
-
                 <div class="row justify-content-center">
                     <div class="col-md-5 col-lg-5">
                         <div class="clean-pricing-item">
@@ -109,28 +104,22 @@
                     </div>
                 </div>
 
-
-                <div class="row justify-content-center">
-                    <div class="col-md-5 col-lg-5">
-                        <div class="clean-pricing-item">
-                            <div class="heading">
-                                <h1>Costs</h1>
+                <div id="modal-1" class="modal hide fade " role="dialog" tabindex="-1" style="display: block;">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Checkout</h4><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="features">
-                                <h4><span class="feature">Product costs:&nbsp;</span><span>X</span></h4>
-                                <h4><span class="feature">Shipping costs:&nbsp;</span><span>X</span></h4>
-                                <h4><span class="feature">Amount of space needed:&nbsp;</span><span>X</span></h4>
-                                <h4><span class="feature">Distance to address:&nbsp;</span><span>X</span></h4>
-                                <h4><span class="feature">Total costs:&nbsp;</span><span>X</span></h4>
-                                <br>
-                                <div class="text-center price"><button class="btn btn-primary btn-lg" type="submit" id="OrderBtn" name="OrderBtn">Order</button></div>
+                            <div class="modal-body">
+                                <p>The price for shipping is:</p>
+                                <p>The price for the products is:</p>
+                                <p>The total is:</p>
                             </div>
-
-
+                            <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Order</button></div>
                         </div>
                     </div>
-                    <div class="w-100"></div>
                 </div>
+
             </div>
         </section>
     </main>
