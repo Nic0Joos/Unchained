@@ -2,6 +2,8 @@ package com.unchained.Unchained.Data.Domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
+//Author: Nico
 public class CostRequest {
 
     @JsonIgnore

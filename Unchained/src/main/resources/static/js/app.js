@@ -1,19 +1,19 @@
-/*Most code was adapted from Internet Technology demo project*/
 
 WarehouseLocation = "Peter Merian-Strasse 86, 4052 Basel"
 serviceEndpointURL = window.location.protocol + "//" + window.location.host
 GoogleApiKey = "AIzaSyDVIjrHMBFBVfO8jLyZy_8WXiYFTSZOSBc"
 
+//Copied from demo project Internet Technology
 function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null;
 }
-
+//Copied from demo project Internet Technology
 function getCookie(name) {
     var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
     if (match) return match[2];
 }
 
-
+//Author:
 function register(name, street, ZIPCode, city, email, password, callbackSuccess, callbackError) {
     $.ajax({
         type: "POST",
@@ -43,6 +43,7 @@ function register(name, street, ZIPCode, city, email, password, callbackSuccess,
     });
 }
 
+//Author:
 function login(email, password, remember, callback) {
     $.ajax({
         type: "POST",
@@ -66,6 +67,7 @@ function login(email, password, remember, callback) {
     });
 }
 
+//Copied from Internet Technology module
 function validateLogin(callback) {
     $.ajax({
         type: "HEAD",
@@ -79,6 +81,7 @@ function validateLogin(callback) {
     });
 }
 
+//Author: Nico
 function getCost(km, pallets, callback){
     $.ajax({
         type: "POST",
@@ -102,6 +105,7 @@ function getCost(km, pallets, callback){
 
 }
 
+//Author:
 function postOrder(productA, productB, productC, productD, shippingCosts, orderPrice, callbackSuccess, callbackError) {
     $.ajax({
         type: "POST",
@@ -128,7 +132,7 @@ function postOrder(productA, productB, productC, productD, shippingCosts, orderP
     });
 }
 
-
+//Author: Nico
 function getProducts(callback) {
     $.ajax({
         type: "GET",
@@ -143,7 +147,7 @@ function getProducts(callback) {
     });
 }
 
-
+//Author: Nico
 function getProfile(callback) {
     $.ajax({
         type: "GET",
@@ -158,6 +162,7 @@ function getProfile(callback) {
     });
 }
 
+//Author: Nico
 function putProfile(street, ZIPCode, city, callbackSuccess, callbackError) {
     $.ajax({
         type: "PUT",
