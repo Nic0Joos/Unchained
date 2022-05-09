@@ -20,7 +20,7 @@ public class DistanceCalculatorService {
     public int getDistance(int ZIPCode) throws Exception {
 
         //Read and create sheet from excel
-        FileInputStream Input = new FileInputStream("src/main/resources/costs.txt");
+        FileInputStream Input = new FileInputStream("src/main/resources/Distances.xlsx");
         XSSFWorkbook workbook = new XSSFWorkbook(Input);
         XSSFSheet sheet =  workbook.getSheet("Distances");
 
