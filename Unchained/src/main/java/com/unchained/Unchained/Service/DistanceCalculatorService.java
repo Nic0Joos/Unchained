@@ -28,7 +28,7 @@ public class DistanceCalculatorService {
         HashMap<String,String> Distances = new HashMap<String,String>();
 
         //Storing data to Hashmap
-        for(int i = 0; i<=rows; i++) {
+        for(int i = 1; i<=rows; i++) {
            String key = sheet.getRow(i).getCell(0).getRawValue();
            String value = sheet.getRow(i).getCell(1).getRawValue();
            Distances.put(key, value);
