@@ -1,7 +1,4 @@
-
-WarehouseLocation = "Peter Merian-Strasse 86, 4052 Basel"
 serviceEndpointURL = window.location.protocol + "//" + window.location.host
-GoogleApiKey = "AIzaSyDVIjrHMBFBVfO8jLyZy_8WXiYFTSZOSBc"
 
 //Copied from demo project Internet Technology
 function getURLParameter(name) {
@@ -22,16 +19,15 @@ function register(name, street, ZIPCode, city, email, password, callbackSuccess,
             "X-XSRF-TOKEN": getCookie("XSRF-TOKEN")
         },
         url: serviceEndpointURL + "/user/register",
-        data: JSON.stringfy({
+        data: JSON.stringify({
             "name": name,
             "street": street,
+            "ZIPCode": ZIPCode,
             "city": city,
             "TravelDistance": 1,
-            "ZIPCode": ZIPCode,
-            "TravelDistance": /*TODO: Retrieve distance between  Warehouse location and users adress via MapBox/TomTom/GoogleApi */,
             "email": email,
+            "isAnAdmin": false,
             "password": password
-            "isAdmin": false
         }),
         success: function (data, textStatus, response) {
             callbackSuccess(true);
@@ -114,7 +110,7 @@ function postOrder(productA, productB, productC, productD, shippingCosts, orderP
             "X-XSRF-TOKEN": getCookie("XSRF-TOKEN")
         },
         url: serviceEndpointURL + "order",
-        data: JSON.stringfy({
+        data: JSON.stringify({
             "productA": productA,
             "productB": productB,
             "productC": productC,

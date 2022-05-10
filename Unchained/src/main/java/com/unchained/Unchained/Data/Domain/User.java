@@ -22,9 +22,21 @@ public class User {
     private int Traveldistance;
     @Email
     private String email;
+    private boolean isAnAdmin;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
+
+    public User(String name, String street, int ZIPCode, String city, int traveldistance, String email, boolean isAnAdmin, String password) {
+        this.name = name;
+        this.street = street;
+        this.ZIPCode = ZIPCode;
+        this.city = city;
+        Traveldistance = traveldistance;
+        this.email = email;
+        this.isAnAdmin = isAnAdmin;
+        this.password = password;
+    }
 
     //getter and setter
     public Long getUserId() { return userId; }
@@ -70,5 +82,11 @@ public class User {
         this.password = password;
     }
 
+    public boolean isAnAdmin() {
+        return isAnAdmin;
+    }
 
+    public void setAnAdmin(boolean anAdmin) {
+        isAnAdmin = anAdmin;
+    }
 }
