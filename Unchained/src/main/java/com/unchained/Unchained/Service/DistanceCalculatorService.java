@@ -40,7 +40,7 @@ public class DistanceCalculatorService {
         int TravelDistance;
 
         if (SearchResult == null) {
-            throw new Exception("Uncommon ZIPCode" + ZIPCode);
+            throw new Exception("Uncommon ZIPCode: " + ZIPCode);
         } else {
             TravelDistance = Integer.parseInt(SearchResult);
             return TravelDistance;

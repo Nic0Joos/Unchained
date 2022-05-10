@@ -11,3 +11,12 @@ spring:
             non_contextual_creation: true
     hibernate:
       ddl-auto: update
+
+security:
+  token:
+    secret: ${TOKEN_SECRET}
+
+admin:
+  username: ${INSERT_USERNAME}
+  email: ${INSERT_EMAIL}
+  password: ${INSERT_PASSWORD}

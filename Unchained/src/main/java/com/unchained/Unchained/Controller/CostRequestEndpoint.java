@@ -32,4 +32,5 @@ public class CostRequestEndpoint {
         }
         return costRequest;
     }
+
 }
