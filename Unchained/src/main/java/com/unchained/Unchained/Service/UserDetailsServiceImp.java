@@ -15,7 +15,6 @@ import javax.validation.Valid;
 @Service
 public class UserDetailsServiceImp implements UserDetailsService {
 
-    //TODO: Log to file
 
     @Autowired
     private UserRepository userRepository;
