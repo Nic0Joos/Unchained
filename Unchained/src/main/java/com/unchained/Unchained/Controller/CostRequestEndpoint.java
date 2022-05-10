@@ -19,7 +19,7 @@ public class CostRequestEndpoint {
 
     Logger logger = LoggerFactory.getLogger(CostRequestEndpoint.class);
 
-    @PostMapping(path="/costrequest")
+    @GetMapping(path="/costrequest")
     public @ResponseBody CostRequest getShippingCosts(@RequestBody CostRequest costRequest){
         try {
             costRequest.setPrice(costRequestService.getCosts(costRequest.getPallets(), costRequest.getKm()));
