@@ -1,0 +1,20 @@
+{
+  "name": "unchained",
+  "description": "Simple Webshop",
+  "website": "https://unchainedproject.herokuapp.com/",
+  "env": {
+    "TOKEN_SECRET": {
+      "description": "A secret key for verifying the integrity of JWT.",
+      "generator": "secret"
+    },
+    "PATH_TO_PROJECT": {
+      "description": "The path to the default deployment of the multi module project.",
+      "value": "Unchained"
+    },
+    "MAVEN_CUSTOM_OPTS": {
+      "description": "Define the default deployment of the multi module project.",
+      "value": "-pl unchained"
+    }
+  },
+  "addons": [ "heroku-postgresql" ]
+}
