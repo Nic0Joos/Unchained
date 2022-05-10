@@ -1,5 +1,6 @@
 package com.unchained.Unchained.Data.Domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.Entity;
@@ -17,6 +18,7 @@ public class User {
     private String street;
     private int ZIPCode;
     private String city;
+    @JsonIgnore
     private int Traveldistance;
     @Email
     private String email;
