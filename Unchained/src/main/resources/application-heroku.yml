@@ -17,6 +17,6 @@ security:
     secret: ${TOKEN_SECRET}
 
 admin:
-  username: ${INSERT_USERNAME}
+  name: ${INSERT_NAME}
   email: ${INSERT_EMAIL}
   password: ${INSERT_PASSWORD}

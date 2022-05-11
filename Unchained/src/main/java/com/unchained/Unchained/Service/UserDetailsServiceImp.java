@@ -41,4 +41,8 @@ public class UserDetailsServiceImp implements UserDetailsService {
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         return null;
     }
+
+    public void saveAdmin(User user) {
+        userRepository.save(user);
+    }
 }

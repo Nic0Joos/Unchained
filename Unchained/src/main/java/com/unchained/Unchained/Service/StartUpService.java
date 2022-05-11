@@ -1,6 +1,7 @@
 package com.unchained.Unchained.Service;
 
 import com.unchained.Unchained.Data.Domain.Product;
+import com.unchained.Unchained.Data.Domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
@@ -15,28 +16,22 @@ public class StartUpService implements ApplicationListener<ApplicationReadyEvent
     @Autowired
     ProductService productService;
 
-    private boolean runsProductive = false;
-    private boolean adminCreated = false;
-    private boolean productsCreated = false;
-
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
 
-        try {
-            runsProductive = System.getenv("RUN_PROD").equals("prod");
-        } catch(NullPointerException e) {
-            runsProductive = false;
-        }
-
-        if (!adminCreated)
-            this.createAdmin();
-        if (!productsCreated)
-            this.createProducts();
+        this.createAdmin();
+        this.createProducts();
 
     }
 
     private void createAdmin() {
+
+        try {
+            userDetailsServiceImp.saveUser(new User("admin", "Peter-Merian-Strasse 86", 4052, "Basel", 1, "admin@unchained.com", true, "adminpassword"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -51,7 +46,6 @@ public class StartUpService implements ApplicationListener<ApplicationReadyEvent
         } catch (Exception e) {
             e.printStackTrace();
         }
-        productsCreated = true;
     }
 
 
