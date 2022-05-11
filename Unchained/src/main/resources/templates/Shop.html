@@ -81,11 +81,37 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
     <script src="../static/js/vanilla-zoom.js"></script>
     <script src="../static/js/theme.js"></script>
+    <script src="../static/js/app.js"></script>
 
     <script>
         $(document).ready(function () {
 
+            
+            getProducts(function (resullt) {
+                var html = '';
+                    $.each(result, function (i, item)  {
+                        html += '<div class="col-md-5 col-lg-5">'
+                                + '<div class="clean-pricing-item">'
+                                    +'<div class="heading">'
+                                    + '<h3>' + item.productName + '</h3>'
+                                    + '</div>'
+                                + '<div class="features">'
+                                    + '<h4><span class="feature">Maximum Amount:&nbsp;</span><span>' + item.maxAmount + '</span></h4>'
+                                    + '<h4><span class="feature">Storage:&nbsp;</span><span>' + item.minPalletSpace + '</span></h4>'
+                                    + '<h4><span class="feature">Amount:&nbsp;</span><input class="form-control-sm" type="number" min="0" max="250"  placeholder="Enter amount"></h4>'
+                                + '</div>'
+                                + '<div class="price">' 
+                                    + '<h4>' + item.price + '</h4>'
+                                + '</div>'
+                            + '</div>'
+                        + '</div>'
+                    });
+                    $("contentContainer").html(html);
+            });
 
+
+
+            
 
         });
 
