@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@Validated
 public class OrderService {
 
     //TODO: Log to file
