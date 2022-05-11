@@ -34,74 +34,11 @@
                     <h2 class="text-info">Pricing Table</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
                 </div>
-                <div class="row justify-content-center">
-                    <div class="col-md-5 col-lg-5">
-                        <div class="clean-pricing-item">
-                            <div class="heading">
-                                <h3>Product A</h3>
-                            </div>
-                            <div class="features">
-                                <h4><span class="feature">Maximum Amount:&nbsp;</span><span>25</span></h4>
-                                <h4><span class="feature">Storage:&nbsp;</span><span>1 Pallet</span></h4>
-                                <h4><span class="feature">Amount:&nbsp;</span><input class="form-control-sm" type="number" min="0" max="250"  placeholder="Enter amount"></h4>
-                            </div>
-                            <div class="price">
-                                <h4>$25</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5 col-lg-5">
-                        <div class="clean-pricing-item">
-                            <div class="heading">
-                                <h3>Product B</h3>
-                            </div>
-                            <div class="features">
-                                <h4><span class="feature">Maximum Amount:&nbsp;</span><span>25</span></h4>
-                                <h4><span class="feature">Storage:&nbsp;</span><span>1 Pallet</span></h4>
-                                <h4><span class="feature">Amount:&nbsp;</span><input class="form-control-sm" type="number" min="0" max="250"  placeholder="Enter amount"></h4>
-                            </div>
-                            <div class="price">
-                                <h4>$25</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5 col-lg-5">
-                        <div class="clean-pricing-item">
-                            <div class="heading">
-                                <h3>Product C</h3>
-                            </div>
-                            <div class="features">
-                                <h4><span class="feature">Maximum Amount:&nbsp;</span><span>25</span></h4>
-                                <h4><span class="feature">Storage:&nbsp;</span><span>1 Pallet</span></h4>
-                                <h4><span class="feature">Amount:&nbsp;</span><input class="form-control-sm" type="number" min="0" max="250" placeholder="Enter amount"></h4>
-                            </div>
-                            <div class="price">
-                                <h4>$25</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5 col-lg-5">
-                        <div class="clean-pricing-item">
-                            <div class="heading">
-                                <h3>Product D</h3>
-                            </div>
-                            <div class="features">
-                                <h4><span class="feature">Maximum Amount:&nbsp;</span><span>25</span></h4>
-                                <h4><span class="feature">Storage:&nbsp;</span><span>1 Pallet</span></h4>
-                                <h4><span class="feature">Amount:&nbsp;</span><input class="form-control-sm" type="number" min="0" max="250"  placeholder="Enter amount"></h4>
-                            </div>
-                            <div class="price">
-                                <h4>$25</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-md-5 col-lg-5">
-                        <div class="clean-pricing-item">
-                            <div class="text-center price"><button class="btn btn-primary btn-lg" type="submit" id="CalculateBtn" name="CalculateBtn">Calculate Costs</button></div>
-                        </div>
-                    </div>
+                <div class="row justify-content-center" id="contentContainer">
+
+
+
+
                 </div>
 
                 <div id="modal-1" class="modal hide fade " role="dialog" tabindex="-1" style="display: block;">
@@ -145,7 +82,33 @@
     <script src="../static/js/vanilla-zoom.js"></script>
     <script src="../static/js/theme.js"></script>
 
+    <script>
+        $(document).ready(function () {
+
+
+
+        });
+
+    </script>
+
 <!--TODO: Function to display the products according to template above (Product A - D)
+
+                  add this below to: #contentContainer
+                     <div class="col-md-5 col-lg-5">
+                        <div class="clean-pricing-item">
+                            <div class="heading">
+                                <h3>Product A</h3>
+                            </div>
+                            <div class="features">
+                                <h4><span class="feature">Maximum Amount:&nbsp;</span><span>25</span></h4>
+                                <h4><span class="feature">Storage:&nbsp;</span><span>1 Pallet</span></h4>
+                                <h4><span class="feature">Amount:&nbsp;</span><input class="form-control-sm" type="number" min="0" max="250"  placeholder="Enter amount"></h4>
+                            </div>
+                            <div class="price">
+                                <h4>$25</h4>
+                            </div>
+                        </div>
+                    </div>
 
 TODO: Function to display the costs/shippingcosts when CalculateBtn is pressed and function that OrderBtn appears
 
