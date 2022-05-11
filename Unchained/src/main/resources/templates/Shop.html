@@ -38,7 +38,16 @@
 
 
 
+                </div>
+                <div class="row justify-content-center">
 
+                    <div class="row justify-content-center">
+                        <div class="col-md-5 col-lg-5">
+                            <div class="clean-pricing-item">
+                                <div class="text-center price"><button class="btn btn-primary btn-lg" type="submit" id="CalculateBtn" name="CalculateBtn">Calculate Costs</button></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="modal-1" class="modal hide fade " role="dialog" tabindex="-1" style="display: block;">
@@ -52,7 +61,7 @@
                                 <p>The price for the products is:</p>
                                 <p>The total is:</p>
                             </div>
-                            <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Order</button></div>
+                            <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button id="OrderBtn" class="btn btn-primary" type="button">Order</button></div>
                         </div>
                     </div>
                 </div>
@@ -111,31 +120,17 @@
 
 
 
+
+
+
+
             
 
         });
 
     </script>
 
-<!--TODO: Function to display the products according to template above (Product A - D)
-
-                  add this below to: #contentContainer
-                     <div class="col-md-5 col-lg-5">
-                        <div class="clean-pricing-item">
-                            <div class="heading">
-                                <h3>Product A</h3>
-                            </div>
-                            <div class="features">
-                                <h4><span class="feature">Maximum Amount:&nbsp;</span><span>25</span></h4>
-                                <h4><span class="feature">Storage:&nbsp;</span><span>1 Pallet</span></h4>
-                                <h4><span class="feature">Amount:&nbsp;</span><input class="form-control-sm" type="number" min="0" max="250"  placeholder="Enter amount"></h4>
-                            </div>
-                            <div class="price">
-                                <h4>$25</h4>
-                            </div>
-                        </div>
-                    </div>
-
+<!--
 TODO: Function to display the costs/shippingcosts when CalculateBtn is pressed and function that OrderBtn appears
 
 TODO: Function to use app.js post orders when OrderBtn is pressed-->
