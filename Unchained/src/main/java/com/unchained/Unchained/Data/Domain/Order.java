@@ -12,7 +12,14 @@ public class Order {
     @GeneratedValue
     private Long orderId;
     @OneToMany(mappedBy = "orderId")
-    private Set<Product> products;
+    private String productA;
+    private int amountA;
+    private String productB;
+    private int amountB;
+    private String productC;
+    private int amountC;
+    private String productD;
+    private int amountD;
     private Long shippingCost;
     private Long orderPrice;
     @ManyToOne
@@ -28,12 +35,68 @@ public class Order {
         this.orderId = orderId;
     }
 
-    public Set<Product> getProducts() {
-        return products;
+    public String getProductA() {
+        return productA;
     }
 
-    public void setProducts(Set<Product> products) {
-        this.products = products;
+    public void setProductA(String productA) {
+        this.productA = productA;
+    }
+
+    public int getAmountA() {
+        return amountA;
+    }
+
+    public void setAmountA(int amountA) {
+        this.amountA = amountA;
+    }
+
+    public String getProductB() {
+        return productB;
+    }
+
+    public void setProductB(String productB) {
+        this.productB = productB;
+    }
+
+    public int getAmountB() {
+        return amountB;
+    }
+
+    public void setAmountB(int amountB) {
+        this.amountB = amountB;
+    }
+
+    public String getProductC() {
+        return productC;
+    }
+
+    public void setProductC(String productC) {
+        this.productC = productC;
+    }
+
+    public int getAmountC() {
+        return amountC;
+    }
+
+    public void setAmountC(int amountC) {
+        this.amountC = amountC;
+    }
+
+    public String getProductD() {
+        return productD;
+    }
+
+    public void setProductD(String productD) {
+        this.productD = productD;
+    }
+
+    public int getAmountD() {
+        return amountD;
+    }
+
+    public void setAmountD(int amountD) {
+        this.amountD = amountD;
     }
 
     public Long getShippingCost() {
