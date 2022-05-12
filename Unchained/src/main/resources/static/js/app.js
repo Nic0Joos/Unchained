@@ -102,7 +102,7 @@ function getCost(km, pallets, callback){
 }
 
 //Author:
-function postOrder(productA, productB, productC, productD, shippingCosts, orderPrice, callbackSuccess, callbackError) {
+function postOrder(productA, amountA, productB, amountB, productC, amountC, productD, amountD, shippingCosts, orderPrice, callbackSuccess, callbackError) {
     $.ajax({
         type: "POST",
         contentType: "application/json",
@@ -112,9 +112,13 @@ function postOrder(productA, productB, productC, productD, shippingCosts, orderP
         url: serviceEndpointURL + "order",
         data: JSON.stringify({
             "productA": productA,
+            "amountA": amountA,
             "productB": productB,
+            "amountB": amountB,
+            "amountC": amountC,
             "productC": productC,
             "productD": productD,
+            "amountD": amountD,
             "shippingCosts": shippingCosts,
             "orderPrice": orderPrice
         }),
