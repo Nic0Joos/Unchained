@@ -21,14 +21,13 @@ public class CostRequestEndpoint {
     @Autowired
     private UserDetailsServiceImp userDetailsServiceImp;
 
-    Logger logger = LoggerFactory.getLogger(CostRequestEndpoint.class);
 
     @GetMapping(path="/costrequest")
     public @ResponseBody CostRequest getShippingCosts(@RequestBody CostRequest costRequest){
         try {
             costRequest.setPrice(costRequestService.getCosts(costRequest.getPallets(), userDetailsServiceImp.getCurrentUser().getTraveldistance()));
         } catch (Exception e) {
-            logger.error(e.toString());
+            e.printStackTrace();
         }
         return costRequest;
     }
