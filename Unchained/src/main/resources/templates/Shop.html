@@ -57,9 +57,9 @@
                                 <h4 class="modal-title">Checkout</h4><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <p>The price for shipping is:</p>
-                                <p>The price for the products is:</p>
-                                <p>The total is:</p>
+                                <p id="ShippingPrice">The price for shipping is:</p>
+                                <p id="ProductPrice">The price for the products is:</p>
+                                <p id="Totalprice">The total is:</p>
                             </div>
                             <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button id="OrderBtn" class="btn btn-primary" type="button">Order</button></div>
                         </div>
@@ -102,12 +102,12 @@
                         html += '<div class="col-md-5 col-lg-5">'
                                 + '<div class="clean-pricing-item">'
                                     +'<div class="heading">'
-                                    + '<h3>' + item.productName + '</h3>'
+                                    + '<h3 id="'+ item.productName +'">' + item.productName + '</h3>'
                                     + '</div>'
                                 + '<div class="features">'
                                     + '<h4><span class="feature">Maximum Amount:&nbsp;</span><span>' + item.maxAmount + '</span></h4>'
                                     + '<h4><span class="feature">Storage:&nbsp;</span><span>' + item.minPalletSpace + '</span></h4>'
-                                    + '<h4><span class="feature">Amount:&nbsp;</span><input class="form-control-sm" type="number" min="0" max="250"  placeholder="Enter amount"></h4>'
+                                    + '<h4><span class="feature">Amount:&nbsp;</span><input id="Amount_'+item.i+'" class="form-control-sm" type="number" min="0" max="250"  placeholder="Enter amount"></h4>'
                                 + '</div>'
                                 + '<div class="price">' 
                                     + '<h4>' + item.price + '</h4>'
@@ -116,6 +116,36 @@
                         + '</div>'
                     });
                     $("contentContainer").html(html);
+            });
+
+
+            $("CalculateBtn").submit(function (event) {
+                var AmountProductA = $("Amount_1").val();
+                var AmountProductB = $("Amount_2").val();
+                var AmountProductC = $("Amount_3").val();
+                var AmountProductD = $("Amount_4").val();
+
+                getCost(AmountProductA, AmountProductB, AmountProductC, AmountProductD, function(result){
+                    $("ShippingPrice").html("The shipping price is:" + result.ShippinPrice);
+                    $("ProductPrice").html("The price for products is:" + result.ProductPrice);
+                    $("Totalprice").html("The total is:" + result.Totalprice);
+                });
+            });
+
+            $("OrderBtn").submit(function(event){
+                var productNameA = "Product A";
+                var AmountProductA = $("Amount_1").val();
+                var productNameB = "Product B";
+                var AmountProductB = $("Amount_2").val();
+                var productNameC = "Product C";
+                var AmountProductC = $("Amount_3").val();
+                var productNameD = "Product D";
+                var AmountProductD = $("Amount_4").val();
+               
+                postOrder(productNameA, AmountProductA, productNameB, AmountProductB, productNameC, AmountProductC, productNameD, AmountProductD, function (result){
+                    if (result)
+                        window.location.reload();
+                });
             });
 
 
