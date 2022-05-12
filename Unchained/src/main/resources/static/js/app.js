@@ -78,14 +78,14 @@ function validateLogin(callback) {
 }
 
 //Author: Nico
-function getCost(km, pallets, callback){
+function getCost(pallets, callback){
     $.ajax({
-        type: "POST",
+        type: "GET",
         contentType: "application/json",
         headers: {
             "X-XSRF-TOKEN": getCookie("XSRF-TOKEN")
         },
-        url: serviceEndpointURL + "/login",
+        url: serviceEndpointURL + "/costrequest",
         data: JSON.stringify({
             "pallets": pallets
         }),
@@ -101,14 +101,14 @@ function getCost(km, pallets, callback){
 }
 
 //Author:
-function postOrder(productA, amountA, productB, amountB, productC, amountC, productD, amountD, shippingCosts, orderPrice, callbackSuccess, callbackError) {
+function postOrder(productA, amountA, productB, amountB, productC, amountC, productD, amountD, shippingCosts, orderPrice, callbackSuccess) {
     $.ajax({
         type: "POST",
         contentType: "application/json",
         headers: {
             "X-XSRF-TOKEN": getCookie("XSRF-TOKEN")
         },
-        url: serviceEndpointURL + "order",
+        url: serviceEndpointURL + "/api/order",
         data: JSON.stringify({
             "productA": productA,
             "amountA": amountA,
@@ -135,7 +135,7 @@ function getProducts(callback) {
     $.ajax({
         type: "GET",
         dataType: "json",
-        url: serviceEndpointURL + "/api/customer",
+        url: serviceEndpointURL + "/api/product",
         success: function (data, textStatus, response) {
             callback(data);
         },
