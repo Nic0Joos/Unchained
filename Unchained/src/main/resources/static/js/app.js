@@ -87,7 +87,6 @@ function getCost(km, pallets, callback){
         },
         url: serviceEndpointURL + "/login",
         data: JSON.stringify({
-            "km": km,
             "pallets": pallets
         }),
         success: function (data, textStatus, response) {
@@ -127,7 +126,6 @@ function postOrder(productA, amountA, productB, amountB, productC, amountC, prod
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(jqXHR, textStatus, errorThrown);
-            callbackError(jqXHR.responseJSON.message);
         }
     });
 }
