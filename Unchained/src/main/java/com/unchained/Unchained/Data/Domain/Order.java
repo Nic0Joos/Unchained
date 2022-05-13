@@ -11,7 +11,6 @@ public class Order {
     @Id
     @GeneratedValue
     private Long orderId;
-    @OneToMany(mappedBy = "orderId")
     private String productA;
     private int amountA;
     private String productB;
