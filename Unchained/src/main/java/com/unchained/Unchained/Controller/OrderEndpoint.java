@@ -1,7 +1,9 @@
 package com.unchained.Unchained.Controller;
 
 import com.unchained.Unchained.Data.Domain.Order;
+import com.unchained.Unchained.Service.LoggerService;
 import com.unchained.Unchained.Service.OrderService;
+import com.unchained.Unchained.Service.UserDetailsServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,18 +18,24 @@ import java.util.List;
 @RequestMapping (path = "/api")
 public class OrderEndpoint {
 
-    //TODO: Logging to file, Check if put / delete work like this
 
     @Autowired
     private OrderService orderService;
 
+    @Autowired
+    private UserDetailsServiceImp userDetailsServiceImp;
+
+    @Autowired
+    private LoggerService loggerService;
+
     @PostMapping(path = "/order", consumes = "application/json",produces = "application/json")
     public ResponseEntity<Order> postOrder(@RequestBody Order order){
         try {
+            order.setUser(userDetailsServiceImp.getCurrentUser());
             orderService.saveOrder(order);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, e.getMessage());
-            //TODO: Log to a file
+            // LoggerService.logSystem("warning", "Order couldn't be processed: " + e.toString());
         }
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{orderId}").buildAndExpand(order.getOrderId()).toUri();
         return ResponseEntity.created(location).body(order);

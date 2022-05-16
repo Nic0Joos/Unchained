@@ -21,7 +21,7 @@ public class Order {
     private int amountD;
     private Long shippingCost;
     private Long orderPrice;
-    @ManyToOne
+    @OneToOne
     @JsonIgnore
     private User user;
 
