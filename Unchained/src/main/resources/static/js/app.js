@@ -78,7 +78,7 @@ function validateLogin(callback) {
 }
 
 //Author: Nico
-function getCost(pallets, callback){
+function getCost(FinalPallets, callback){
     $.ajax({
         type: "GET",
         contentType: "application/json",
@@ -87,7 +87,7 @@ function getCost(pallets, callback){
         },
         url: serviceEndpointURL + "/costrequest",
         data: JSON.stringify({
-            "pallets": pallets
+            "pallets": FinalPallets
         }),
         success: function (data, textStatus, response) {
             callback(true);
@@ -101,7 +101,7 @@ function getCost(pallets, callback){
 }
 
 //Author:
-function postOrder(productA, amountA, productB, amountB, productC, amountC, productD, amountD, shippingCosts, orderPrice, callbackSuccess) {
+function postOrder(productNameA, AmountProductA, productNameB, AmountProductB, productNameC, AmountProductC, productNameD, AmountProductD, ShippingPrice, Totalprice, callbackSuccess) {
     $.ajax({
         type: "POST",
         contentType: "application/json",
@@ -110,16 +110,16 @@ function postOrder(productA, amountA, productB, amountB, productC, amountC, prod
         },
         url: serviceEndpointURL + "/api/order",
         data: JSON.stringify({
-            "productA": productA,
-            "amountA": amountA,
-            "productB": productB,
-            "amountB": amountB,
-            "amountC": amountC,
-            "productC": productC,
-            "productD": productD,
-            "amountD": amountD,
-            "shippingCosts": shippingCosts,
-            "orderPrice": orderPrice
+            "productA": productNameA,
+            "amountA": AmountProductA,
+            "productB": productNameB,
+            "amountB": AmountProductB,
+            "amountC": productNameC,
+            "productC": AmountProductC,
+            "productD": productNameD,
+            "amountD": AmountProductD,
+            "shippingCosts": ShippingPrice,
+            "orderPrice": Totalprice
         }),
         success: function (data, textStatus, response) {
             callbackSuccess(true);
