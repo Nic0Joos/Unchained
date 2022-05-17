@@ -35,8 +35,8 @@ public class OrderEndpoint {
             order.setUser(userDetailsServiceImp.getCurrentUser());
             orderService.saveOrder(order);
         } catch (Exception e) {
+            LoggerService.logSystem("warning", "Order couldn't be processed: " + e.toString());
             throw new ResponseStatusException(HttpStatus.CONFLICT, e.getMessage());
-            // LoggerService.logSystem("warning", "Order couldn't be processed: " + e.toString());
         }
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{orderId}").buildAndExpand(order.getOrderId()).toUri();
         return ResponseEntity.created(location).body(order);

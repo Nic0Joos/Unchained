@@ -1,6 +1,7 @@
 package com.unchained.Unchained.Controller;
 
 import com.unchained.Unchained.Data.Domain.Product;
+import com.unchained.Unchained.Service.LoggerService;
 import com.unchained.Unchained.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,17 +21,20 @@ public class ProductEndpoint {
     @Autowired
     private ProductService productService;
 
+    @Autowired
+    private LoggerService loggerService;
+
     @PostMapping(path = "/product,", consumes = "application/json", produces = "application/json")
     public ResponseEntity<Product> postProduct(@RequestBody Product product){
 
         try {
             productService.saveProduct(product);
         } catch (Exception e) {
+            loggerService.logSystem("warning", e.toString());
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
         }
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{productId}").buildAndExpand(product.getProductId()).toUri();
-
         return ResponseEntity.created(location).body(product);
     }
 

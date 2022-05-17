@@ -3,6 +3,7 @@ package com.unchained.Unchained.Controller;
 
 import com.unchained.Unchained.Data.Domain.User;
 import com.unchained.Unchained.Service.DistanceCalculatorService;
+import com.unchained.Unchained.Service.LoggerService;
 import com.unchained.Unchained.Service.UserDetailsServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,17 +22,19 @@ public class UserController {
     @Autowired
     DistanceCalculatorService distanceCalculatorService;
 
+    @Autowired
+    LoggerService loggerService;
+
     @PostMapping(path = "/user/register")
     public ResponseEntity<Void> postRegister(@RequestBody User user) {
         try {
             user.setTraveldistance(distanceCalculatorService.getDistance(user.getZIPCode()));
             userService.saveUser(user);
         } catch (Exception e) {
+            loggerService.logSystem("warning", e.toString());
             new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
-            //TODO: log to a file if exception is thrown
         }
         return ResponseEntity.ok().build();
-        //TODO: log to a file if ok
     }
 
     @PutMapping(path = "/profile")

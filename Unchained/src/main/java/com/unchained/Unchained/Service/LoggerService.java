@@ -56,6 +56,25 @@ public class LoggerService {
 
     }
 
+    public static void logUser(String msg) {
+        FileHandler fh = null;
+
+        try {
+            fh = new FileHandler("user_logs.log");
+            logger.addHandler(fh);
+            SimpleFormatter formatter = new SimpleFormatter();
+            fh.setFormatter(formatter);
+
+            logger.info(msg);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (fh != null)
+                fh.close();
+        }
+    }
+
 
 
 }
