@@ -85,7 +85,7 @@ function getCost(FinalPallets, callback){
         headers: {
             "X-XSRF-TOKEN": getCookie("XSRF-TOKEN")
         },
-        url: serviceEndpointURL + "/costrequest",
+        url: serviceEndpointURL + "/api/costrequest",
         data: JSON.stringify({
             "pallets": FinalPallets
         }),

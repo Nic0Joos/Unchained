@@ -20,10 +20,8 @@ public class StartUpService implements ApplicationListener<ApplicationReadyEvent
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
-
         this.createAdmin();
         this.createProducts();
-
     }
 
     private void createAdmin() {
