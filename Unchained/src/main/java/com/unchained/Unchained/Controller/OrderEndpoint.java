@@ -1,6 +1,6 @@
 package com.unchained.Unchained.Controller;
 
-import com.unchained.Unchained.Data.Domain.Order;
+import com.unchained.Unchained.Data.Domain.Ordering;
 import com.unchained.Unchained.Service.LoggerService;
 import com.unchained.Unchained.Service.OrderService;
 import com.unchained.Unchained.Service.UserDetailsServiceImp;
@@ -30,21 +30,21 @@ public class OrderEndpoint {
     private LoggerService loggerService;
 
     @PostMapping(path = "/order", consumes = "application/json",produces = "application/json")
-    public ResponseEntity<Order> postOrder(@RequestBody Order order){
+    public ResponseEntity<Ordering> postOrder(@RequestBody Ordering ordering){
         try {
-            order.setUser(userDetailsServiceImp.getCurrentUser());
-            orderService.saveOrder(order);
+            ordering.setUser(userDetailsServiceImp.getCurrentUser());
+            orderService.saveOrder(ordering);
         } catch (Exception e) {
             LoggerService.logSystem("warning", "Order couldn't be processed: " + e.toString());
             throw new ResponseStatusException(HttpStatus.CONFLICT, e.getMessage());
         }
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{orderId}").buildAndExpand(order.getOrderId()).toUri();
-        return ResponseEntity.created(location).body(order);
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{orderId}").buildAndExpand(ordering.getOrderId()).toUri();
+        return ResponseEntity.created(location).body(ordering);
     }
 
     //all orders
     @GetMapping(path="/order", produces = "application/json")
-    public List<Order> getAllOrders() {
+    public List<Ordering> getAllOrders() {
         return orderService.findAllOrders();
     }
 

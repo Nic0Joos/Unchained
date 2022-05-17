@@ -7,7 +7,7 @@ import java.util.Set;
 
 //Author: Luca
 @Entity
-public class Order {
+public class Ordering {
 
     @Id
     @GeneratedValue
