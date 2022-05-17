@@ -22,7 +22,7 @@ public class Order {
     private int amountD;
     private Long shippingCost;
     private Long orderPrice;
-    @OneToOne
+    @OneToOne(mappedBy = "userId")
     @JsonIgnore
     private User user;
 
