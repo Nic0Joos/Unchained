@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
 
+import static java.util.Collections.emptyList;
+
 //Author: Kaan
 @Service
 public class UserDetailsServiceImp implements UserDetailsService {
@@ -39,8 +41,12 @@ public class UserDetailsServiceImp implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        return null;
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = userRepository.findByEmail(username);
+        if (user == null) {
+            throw new UsernameNotFoundException(username);
+        }
+        return (UserDetails) new User(user.getEmail(), user.getPassword(), emptyList());
     }
 
     public void saveAdmin(User user) {

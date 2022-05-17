@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
+import java.util.List;
 
 //Author: Alex
 @Entity
@@ -37,6 +38,9 @@ public class User {
         this.email = email;
         this.isAnAdmin = isAnAdmin;
         this.password = password;
+    }
+
+    public User(String email, String password, List<Object> emptyList) {
     }
 
     //getter and setter
