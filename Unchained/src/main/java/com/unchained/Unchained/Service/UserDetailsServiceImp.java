@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
 
+//Author: Kaan
 @Service
 public class UserDetailsServiceImp implements UserDetailsService {
 

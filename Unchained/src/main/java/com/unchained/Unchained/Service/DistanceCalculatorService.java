@@ -8,7 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 
-//Autor:
+//Autor: Lennart
 
 //Inspired from https://www.youtube.com/watch?v=KeBTs5Nm0Tg
 

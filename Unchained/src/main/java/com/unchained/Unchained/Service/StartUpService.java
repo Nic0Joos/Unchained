@@ -7,6 +7,7 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
+//Author: Lennart
 @Component
 public class StartUpService implements ApplicationListener<ApplicationReadyEvent> {
 

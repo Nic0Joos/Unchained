@@ -10,7 +10,7 @@ function getCookie(name) {
     if (match) return match[2];
 }
 
-//Author:
+//Author: Alex
 function register(name, street, ZIPCode, city, email, password, callbackSuccess, callbackError) {
     $.ajax({
         type: "POST",
@@ -39,7 +39,7 @@ function register(name, street, ZIPCode, city, email, password, callbackSuccess,
     });
 }
 
-//Author:
+//Author: Alex
 function login(email, password, remember, callback) {
     $.ajax({
         type: "POST",
@@ -100,7 +100,7 @@ function getCost(FinalPallets, callback){
 
 }
 
-//Author:
+//Author: Luca
 function postOrder(productNameA, AmountProductA, productNameB, AmountProductB, productNameC, AmountProductC, productNameD, AmountProductD, ShippingPrice, Totalprice, callbackSuccess) {
     $.ajax({
         type: "POST",
@@ -130,7 +130,7 @@ function postOrder(productNameA, AmountProductA, productNameB, AmountProductB, p
     });
 }
 
-//Author: Nico
+//Author: Kaan
 function getProducts(callback) {
     $.ajax({
         type: "GET",
@@ -145,7 +145,7 @@ function getProducts(callback) {
     });
 }
 
-//Author: Nico
+//Author: Alex
 function getProfile(callback) {
     $.ajax({
         type: "GET",
@@ -160,7 +160,7 @@ function getProfile(callback) {
     });
 }
 
-//Author: Nico
+//Author: Alex
 function putProfile(street, ZIPCode, city, callbackSuccess, callbackError) {
     $.ajax({
         type: "PUT",
