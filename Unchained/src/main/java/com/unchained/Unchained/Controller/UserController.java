@@ -42,8 +42,8 @@ public class UserController {
         try {
             user.setUserId(userService.getCurrentUser().getUserId());
         } catch (Exception e) {
+            loggerService.logUser("User profile of " + user + "was changed.");
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
-            //TODO: log to a file if error
         }
         return ResponseEntity.ok().build();
     }
