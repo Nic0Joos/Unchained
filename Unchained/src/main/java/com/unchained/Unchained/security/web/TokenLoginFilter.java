@@ -6,6 +6,7 @@ https://github.com/DigiPR/digipr-acrm
 package com.unchained.Unchained.security.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.unchained.Unchained.Service.LoggerService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -24,6 +25,7 @@ import java.util.Date;
 public class TokenLoginFilter extends UsernamePasswordAuthenticationFilter {
     private TokenService tokenService;
     private TokenUser user = null;
+    private LoggerService loggerService;
 
     public TokenLoginFilter(AuthenticationManager authenticationManager, TokenService tokenService) {
         super.setAuthenticationManager(authenticationManager);
@@ -37,7 +39,7 @@ public class TokenLoginFilter extends UsernamePasswordAuthenticationFilter {
         try {
             this.user = new ObjectMapper().readValue(request.getInputStream(), TokenUser.class);
         } catch (IOException e) {
-            e.printStackTrace();
+            loggerService.logUser("Unsucessful login from user: "+ user);
         }
 
         return this.getAuthenticationManager().authenticate(
@@ -55,6 +57,7 @@ public class TokenLoginFilter extends UsernamePasswordAuthenticationFilter {
 
         Date date = null;
         Cookie cookie = null;
+        loggerService.logUser("User: " + user + "logged in");
 
         if(Boolean.parseBoolean(this.user.getRemember())) {
             date = new Date(System.currentTimeMillis() + TokenSecurityProperties.REMEMBER_EXPIRATION_TIME);
