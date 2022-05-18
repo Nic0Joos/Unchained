@@ -10,9 +10,9 @@ import com.unchained.security.web.CSRFRequestMatcher;
 import com.unchained.security.web.TokenAuthenticationFilter;
 import com.unchained.security.web.TokenLoginFilter;
 import com.unchained.security.web.TokenLogoutHandler;
-import io.swagger.models.HttpMethod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -48,9 +48,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .requireCsrfProtectionMatcher(new CSRFRequestMatcher())
                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
                 .authorizeRequests()
-                .antMatchers("/", "/index", "/index.html", "/css/**", "/bootstrap/**", "/js/**", "/img/**", "/login.html", "/login/**", "/register.html", "/register/**", "/api/**").permitAll()
-                .antMatchers("/costrequest/**", "/shop.html", "/customer.html", "/admin.html", "/order/**", "/product/**", "/user/**", "/validate", "/admin/**").authenticated()
-                .antMatchers(String.valueOf(HttpMethod.GET), "/logout").permitAll()
+                .antMatchers("/", "/assets/**", "/user/**", "/login/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/logout").permitAll()
                 .anyRequest().authenticated().and()
                 .addFilter(new TokenLoginFilter(authenticationManagerBean(), tokenService))
                 .addFilter(new TokenAuthenticationFilter(authenticationManagerBean(), tokenService))

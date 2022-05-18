@@ -53,7 +53,7 @@ public class UserController {
         return userService.getCurrentUser();
     }
 
-    @GetMapping(path = "/register")
+    @GetMapping(path = "/user/register")
     public String getRegisterView(){
         return "register.html";
     }
@@ -61,5 +61,10 @@ public class UserController {
     @GetMapping(path = "/login")
     public String getLoginView(){
         return "login.html";
+    }
+
+    @RequestMapping(value = "/validate", method = {RequestMethod.GET, RequestMethod.HEAD})
+    public ResponseEntity<Void> init() {
+        return ResponseEntity.ok().build();
     }
 }
