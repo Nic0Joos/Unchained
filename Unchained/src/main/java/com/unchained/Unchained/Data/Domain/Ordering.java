@@ -12,13 +12,9 @@ public class Ordering {
     @Id
     @GeneratedValue
     private Long orderId;
-    private String productA;
     private int amountA;
-    private String productB;
     private int amountB;
-    private String productC;
     private int amountC;
-    private String productD;
     private int amountD;
     private Long shippingCost;
     private Long orderPrice;
@@ -35,28 +31,12 @@ public class Ordering {
         this.orderId = orderId;
     }
 
-    public String getProductA() {
-        return productA;
-    }
-
-    public void setProductA(String productA) {
-        this.productA = productA;
-    }
-
     public int getAmountA() {
         return amountA;
     }
 
     public void setAmountA(int amountA) {
         this.amountA = amountA;
-    }
-
-    public String getProductB() {
-        return productB;
-    }
-
-    public void setProductB(String productB) {
-        this.productB = productB;
     }
 
     public int getAmountB() {
@@ -67,28 +47,12 @@ public class Ordering {
         this.amountB = amountB;
     }
 
-    public String getProductC() {
-        return productC;
-    }
-
-    public void setProductC(String productC) {
-        this.productC = productC;
-    }
-
     public int getAmountC() {
         return amountC;
     }
 
     public void setAmountC(int amountC) {
         this.amountC = amountC;
-    }
-
-    public String getProductD() {
-        return productD;
-    }
-
-    public void setProductD(String productD) {
-        this.productD = productD;
     }
 
     public int getAmountD() {
