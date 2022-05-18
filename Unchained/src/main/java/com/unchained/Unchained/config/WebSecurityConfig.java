@@ -41,21 +41,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER).and()
-            .requiresChannel().requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null).requiresSecure().and() // If the X-Forwarded-Proto header is present, redirect to HTTPS (Heroku)
-            .csrf()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER).and()
+                .requiresChannel().requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null).requiresSecure().and() // If the X-Forwarded-Proto header is present, redirect to HTTPS (Heroku)
+                .csrf()
                 .requireCsrfProtectionMatcher(new CSRFRequestMatcher())
                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
-            .authorizeRequests()
-                .antMatchers("/", "/assets/**", "/user/**", "/login/**").permitAll()
+                .authorizeRequests()
+                .antMatchers("/", "/index", "/css/**", "/bootstrap/**", "/js/**", "/img/**", "/login/**", "/register/**", "/api/**").permitAll()
+                .antMatchers("/costrequest/**", "/order/**", "/product/**", "/user/**", "/validate", "/admin/**").authenticated()
                 .antMatchers(HttpMethod.GET, "/logout").permitAll()
                 .anyRequest().authenticated().and()
-                    .addFilter(new TokenLoginFilter(authenticationManagerBean(), tokenService))
-                    .addFilter(new TokenAuthenticationFilter(authenticationManagerBean(), tokenService))
-            .logout()
+                .addFilter(new TokenLoginFilter(authenticationManagerBean(), tokenService))
+                .addFilter(new TokenAuthenticationFilter(authenticationManagerBean(), tokenService))
+                .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/")
                 .addLogoutHandler(new TokenLogoutHandler(tokenService));
+
     }
 
     @Override

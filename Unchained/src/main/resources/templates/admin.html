@@ -79,6 +79,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
     <script src="../static/js/vanilla-zoom.js"></script>
     <script src="../static/js/theme.js"></script>
+    <script language="JavaScript">
+    validateLogin(function (result) {
+    if (!result) {
+    window.location.replace("../login");
+    }
+    });
+    </script>
 
 <!-- TODO: Function that uses app.js post product methods
 

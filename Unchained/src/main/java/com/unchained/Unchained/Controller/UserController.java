@@ -53,13 +53,13 @@ public class UserController {
         return userService.getCurrentUser();
     }
 
-    @GetMapping(path = "/user/register")
+    @GetMapping(path = "/register")
     public String getRegisterView(){
-        return "Register.html";
+        return "register.html";
     }
 
     @GetMapping(path = "/login")
     public String getLoginView(){
-        return "Login.html";
+        return "login.html";
     }
 }
