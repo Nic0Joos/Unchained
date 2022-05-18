@@ -1,46 +1,30 @@
-/*package com.unchained.Unchained.Controller;
+package com.unchained.Unchained.Controller;
 
-import com.unchained.Unchained.Service.FileService;
+
+import com.unchained.Unchained.Service.UserDetailsServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.File;
 
-@RestController
+@Controller
 @RequestMapping(path = "/api")
 public class AdminController {
 
-
-    //File upload of cost.txt / Distances.xlsx
-
-
     @Autowired
-    FileService fileService;
+    private UserDetailsServiceImp userDetailsServiceImp;
 
-    @PostMapping(path = "/costfile", consumes = "application/json",produces = "application/json")
-    public void postCostFile() {
-        File file = null;
 
-        try {
-            fileService.saveCostFile();
-        } catch (Exception e) {
-
-        }
-
+    @GetMapping
+    public String getAdminView(){
+       if(userDetailsServiceImp.getCurrentUser().isAnAdmin()) {
+           return "index.html";
+       } else {
+           return "403.html";
+       }
     }
 
-    @PostMapping(path = "/costfile", consumes = "application/json",produces = "application/json")
-    public void postDistanceFile() {
-        File file = null;
-
-        try {
-            fileService.saveCostFile();
-        } catch (Exception e) {
-
-        }
-
-    }
-
-}*/
+}
