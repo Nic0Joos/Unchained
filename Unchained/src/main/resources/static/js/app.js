@@ -101,7 +101,7 @@ function getCost(FinalPallets, callback){
 }
 
 //Author: Luca
-function postOrder(productNameA, AmountProductA, productNameB, AmountProductB, productNameC, AmountProductC, productNameD, AmountProductD, ShippingPrice, Totalprice, callbackSuccess) {
+function postOrder(AmountProductA, AmountProductB, AmountProductC, AmountProductD, ShippingPrice, Totalprice, callbackSuccess) {
     $.ajax({
         type: "POST",
         contentType: "application/json",
@@ -110,13 +110,9 @@ function postOrder(productNameA, AmountProductA, productNameB, AmountProductB, p
         },
         url: serviceEndpointURL + "/api/order",
         data: JSON.stringify({
-            "productA": productNameA,
             "amountA": AmountProductA,
-            "productB": productNameB,
             "amountB": AmountProductB,
-            "amountC": productNameC,
-            "productC": AmountProductC,
-            "productD": productNameD,
+            "amountC": AmountProductC,
             "amountD": AmountProductD,
             "shippingCosts": ShippingPrice,
             "orderPrice": Totalprice

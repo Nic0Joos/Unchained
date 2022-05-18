@@ -110,9 +110,9 @@
                                 <h4 class="modal-title">Checkout</h4><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <p id="ShippingPrice">The price for shipping is:</p>
-                                <p id="ProductPrice">The price for the products is:</p>
-                                <p id="Totalprice">The total is:</p>
+                                <p>The price for shipping is:</p><span id="ShippingPrice"></span>
+                                <p>The price for the products is:</p><span id="ProductPrice"></span>
+                                <p>The total is:</p><span id="Totalprice"></span>
                             </div>
                             <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button id="OrderBtn" class="btn btn-primary" type="button">Order</button></div>
                         </div>
@@ -156,7 +156,7 @@
     <script>
         $(document).ready(function () {
 
-            $("CalculateBtn").submit(function (event) {
+            $("CalculateBtn").click(function (event) {
                 var AmountProductA = Math.ceil(Math.ceil($("Amount_ProductA").val() / $("MaxAmount_ProductA").val()) * $("MinPallets_ProductA").val());
                 var AmountProductB = Math.ceil(Math.ceil($("Amount_ProductB").val() / $("MaxAmount_ProductB").val()) * $("MinPallets_ProductB").val());
                 var AmountProductC = Math.ceil(Math.ceil($("Amount_ProductC").val() / $("MaxAmount_ProductC").val()) * $("MinPallets_ProductC").val());
@@ -171,20 +171,16 @@
                 });
             });
 
-            $("OrderBtn").submit(function(event){
-                var productNameA = "Product A";
+            $("OrderBtn").click(function(event){
                 var AmountProductA = $("Amount_1").val();
-                var productNameB = "Product B";
                 var AmountProductB = $("Amount_2").val();
-                var productNameC = "Product C";
                 var AmountProductC = $("Amount_3").val();
-                var productNameD = "Product D";
                 var AmountProductD = $("Amount_4").val();
                 var ShippingPrice = $("ShippingPrice").val();
                 var Totalprice = $("Totalprice").val();
 
                
-                postOrder(productNameA, AmountProductA, productNameB, AmountProductB, productNameC, AmountProductC, productNameD, AmountProductD, ShippingPrice, Totalprice,  function (result){
+                postOrder(AmountProductA, AmountProductB, AmountProductC, AmountProductD, ShippingPrice, Totalprice,  function (result){
                     if (result)
                         window.location.reload();
                 });
