@@ -3,7 +3,7 @@ From Andreas Martin FHNW
 https://github.com/DigiPR/digipr-acrm
  */
 
-package com.unchained.Unchained.security.model;
+package com.unchained.security.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

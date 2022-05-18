@@ -6,9 +6,13 @@ https://github.com/DigiPR/digipr-acrm
 package com.unchained.Unchained.config;
 
 import com.unchained.Unchained.Service.UserDetailsServiceImp;
+import com.unchained.security.web.CSRFRequestMatcher;
+import com.unchained.security.web.TokenAuthenticationFilter;
+import com.unchained.security.web.TokenLoginFilter;
+import com.unchained.security.web.TokenLogoutHandler;
+import io.swagger.models.HttpMethod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -17,14 +21,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import com.unchained.security.config.EnableTokenSecurity;
+import com.unchained.security.service.TokenService;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import com.unchained.Unchained.security.config.EnableTokenSecurity;
-import com.unchained.Unchained.security.service.TokenService;
-import com.unchained.Unchained.security.web.CSRFRequestMatcher;
-import com.unchained.Unchained.security.web.TokenAuthenticationFilter;
-import com.unchained.Unchained.security.web.TokenLoginFilter;
-import com.unchained.Unchained.security.web.TokenLogoutHandler;
 
 
 @EnableWebSecurity
@@ -40,11 +40,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .csrf().disable()
-                .authorizeRequests().antMatchers("/").permitAll();
 
-        /*http
+        http
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER).and()
                 .requiresChannel().requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null).requiresSecure().and() // If the X-Forwarded-Proto header is present, redirect to HTTPS (Heroku)
                 .csrf()
@@ -53,7 +50,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/", "/index", "/index.html", "/css/**", "/bootstrap/**", "/js/**", "/img/**", "/login.html", "/login/**", "/register.html", "/register/**", "/api/**").permitAll()
                 .antMatchers("/costrequest/**", "/shop.html", "/customer.html", "/admin.html", "/order/**", "/product/**", "/user/**", "/validate", "/admin/**").authenticated()
-                .antMatchers(HttpMethod.GET, "/logout").permitAll()
+                .antMatchers(String.valueOf(HttpMethod.GET), "/logout").permitAll()
                 .anyRequest().authenticated().and()
                 .addFilter(new TokenLoginFilter(authenticationManagerBean(), tokenService))
                 .addFilter(new TokenAuthenticationFilter(authenticationManagerBean(), tokenService))
@@ -61,7 +58,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/")
                 .addLogoutHandler(new TokenLogoutHandler(tokenService));
-*/
+
     }
 
     @Override

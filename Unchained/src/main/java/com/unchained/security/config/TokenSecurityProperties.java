@@ -3,7 +3,7 @@ From Andreas Martin FHNW
 https://github.com/DigiPR/digipr-acrm
  */
 
-package com.unchained.Unchained.security.config;
+package com.unchained.security.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

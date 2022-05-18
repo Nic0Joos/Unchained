@@ -3,7 +3,7 @@ From Andreas Martin FHNW
 https://github.com/DigiPR/digipr-acrm
  */
 
-package com.unchained.Unchained.security.web;
+package com.unchained.security.web;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
@@ -15,8 +15,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.web.util.WebUtils;
-import com.unchained.Unchained.security.config.TokenSecurityProperties;
-import com.unchained.Unchained.security.service.TokenService;
+import com.unchained.security.config.TokenSecurityProperties;
+import com.unchained.security.service.TokenService;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;

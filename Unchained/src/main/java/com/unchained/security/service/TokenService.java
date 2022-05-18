@@ -3,7 +3,7 @@ From Andreas Martin FHNW
 https://github.com/DigiPR/digipr-acrm
  */
 
-package com.unchained.Unchained.security.service;
+package com.unchained.security.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
@@ -12,8 +12,8 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
-import com.unchained.Unchained.security.config.TokenSecurityProperties;
-import com.unchained.Unchained.security.model.Token;
+import com.unchained.security.config.TokenSecurityProperties;
+import com.unchained.security.model.Token;
 import javax.crypto.spec.SecretKeySpec;
 import javax.persistence.EntityManager;
 import java.security.Key;

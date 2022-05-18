@@ -3,7 +3,7 @@ From Andreas Martin FHNW
 https://github.com/DigiPR/digipr-acrm
  */
 
-package com.unchained.Unchained.security.web;
+package com.unchained.security.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.unchained.Unchained.Service.LoggerService;
@@ -11,9 +11,9 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import com.unchained.Unchained.security.config.TokenSecurityProperties;
-import com.unchained.Unchained.security.model.TokenUser;
-import com.unchained.Unchained.security.service.TokenService;
+import com.unchained.security.config.TokenSecurityProperties;
+import com.unchained.security.model.TokenUser;
+import com.unchained.security.service.TokenService;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;

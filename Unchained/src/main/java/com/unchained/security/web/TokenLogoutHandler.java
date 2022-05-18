@@ -3,12 +3,12 @@ From Andreas Martin FHNW
 https://github.com/DigiPR/digipr-acrm
  */
 
-package com.unchained.Unchained.security.web;
+package com.unchained.security.web;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
-import com.unchained.Unchained.security.config.TokenSecurityProperties;
-import com.unchained.Unchained.security.service.TokenService;
+import com.unchained.security.config.TokenSecurityProperties;
+import com.unchained.security.service.TokenService;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

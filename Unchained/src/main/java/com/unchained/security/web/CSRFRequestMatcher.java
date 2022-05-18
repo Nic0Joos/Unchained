@@ -3,7 +3,7 @@ From Andreas Martin FHNW
 https://github.com/DigiPR/digipr-acrm
  */
 
-package com.unchained.Unchained.security.web;
+package com.unchained.security.web;
 
 import org.springframework.security.web.util.matcher.RequestMatcher;
 
