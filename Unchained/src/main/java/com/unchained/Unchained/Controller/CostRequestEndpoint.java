@@ -5,6 +5,7 @@ import com.unchained.Unchained.Service.CostRequestService;
 import com.unchained.Unchained.Service.LoggerService;
 import com.unchained.Unchained.Service.UserDetailsServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,14 +25,14 @@ public class CostRequestEndpoint {
     private LoggerService loggerService;
 
 
-    @GetMapping(path="/costrequest")
-    public @ResponseBody CostRequest getShippingCosts(@RequestBody CostRequest costRequest){
+    @PostMapping(path="/costrequest", consumes = {"application/json"}, produces = {"application/json"})
+    public @ResponseBody ResponseEntity<CostRequest> getShippingCosts(@RequestBody CostRequest costRequest){
         try {
             costRequest.setPrice(costRequestService.getCosts(costRequest.getPallets(), 50));// userDetailsServiceImp.getCurrentUser().getTraveldistance()));
         } catch (Exception e) {
             loggerService.logSystem("warning",e.toString());
         }
-        return costRequest;
+        return ResponseEntity.ok().build();
     }
 
 }
