@@ -146,12 +146,17 @@
         $(document).ready(function () {
 
             $("#CalculateBtn").click(function (event) {
-                var AmountProductA = Math.ceil(Math.ceil($("#Amount_ProductA").val() / $("#MaxAmount_ProductA").val()) * $("#MinPallets_ProductA").val());
-                var AmountProductB = Math.ceil(Math.ceil($("#Amount_ProductB").val() / $("#MaxAmount_ProductB").val()) * $("#MinPallets_ProductB").val());
-                var AmountProductC = Math.ceil(Math.ceil($("#Amount_ProductC").val() / $("#MaxAmount_ProductC").val()) * $("#MinPallets_ProductC").val());
-                var AmountProductD = Math.ceil(Math.ceil($("#Amount_ProductD").val() / $("#MaxAmount_ProductD").val()) * $("MinPallets_ProductD").val());
+                var AmountProductA = Math.ceil(Math.ceil(parseInt($("#Amount_ProductA").val()) / parseInt($("#MaxAmount_ProductA").val())) * parseInt($("#MinPallets_ProductA").val()));
+                var AmountProductB = Math.ceil(Math.ceil(parseInt($("#Amount_ProductB").val()) / parseInt($("#MaxAmount_ProductB").val())) * parseInt($("#MinPallets_ProductB").val()));
+                var AmountProductC = Math.ceil(Math.ceil(parseInt($("#Amount_ProductC").val()) / parseInt($("#MaxAmount_ProductC").val())) * parseInt($("#MinPallets_ProductC").val()));
+                var AmountProductD = Math.ceil(Math.ceil(parseInt($("#Amount_ProductD").val()) / parseInt($("#MaxAmount_ProductD").val())) * parseInt($("MinPallets_ProductD").val()));
                 var FinalPallets = Math.max(AmountProductA, AmountProductB, AmountProductC, AmountProductD);
-                var ProductPrice = ($("#Amount_ProductA").val()*$("#Price_ProductA"))+($("#Amount_ProductB").val()*$("#Price_ProductB"))+($("#Amount_ProductC").val()*$("#Price_ProductC"))+($("#Amount_ProductD").val()*$("#Price_ProductD"));
+                var ProductPrice = (parseInt($("#Amount_ProductA").val())*parseInt($("#Price_ProductA")))
+                +(parseInt($("#Amount_ProductB").val())*parseInt($("#Price_ProductB")))
+                +(parseInt($("#Amount_ProductC").val())*parseInt($("#Price_ProductC")))
+                +(parseInt($("#Amount_ProductD").val())*parseInt($("#Price_ProductD")));
+
+
 
                 getCost(FinalPallets, function(result){
                     $("#ShippingPrice").html("The shipping price is:" + result.ShippingPrice);
