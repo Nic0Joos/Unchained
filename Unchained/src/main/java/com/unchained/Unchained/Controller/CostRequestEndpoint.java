@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 //Author: Nico
 
 @Controller
-@RequestMapping(path = "/api")
+@RequestMapping(path = "/costrequest")
 public class CostRequestEndpoint {
 
     @Autowired
@@ -24,15 +24,16 @@ public class CostRequestEndpoint {
     @Autowired
     private LoggerService loggerService;
 
-
-    @PostMapping(path="/costrequest", consumes = {"application/json"}, produces = {"application/json"})
-    public @ResponseBody ResponseEntity<CostRequest> getShippingCosts(@RequestBody CostRequest costRequest){
+    //Tested with postman: 19.05.2022/NJ
+    @PostMapping(consumes = {"application/json"}, produces = {"application/json"})
+    public @ResponseBody CostRequest getShippingCosts(@RequestBody CostRequest costRequest){
         try {
-            costRequest.setPrice(costRequestService.getCosts(costRequest.getPallets(), 50));// userDetailsServiceImp.getCurrentUser().getTraveldistance()));
+            costRequest.setPrice(costRequestService.getCosts(costRequest.getPallets(), 50)); // userDetailsServiceImp.getCurrentUser().getTraveldistance()));
+            costRequest.setKm(50); //userDetailsServiceImp.getCurrentUser().getTraveldistance());
         } catch (Exception e) {
             loggerService.logSystem("warning",e.toString());
         }
-        return ResponseEntity.ok().build();
+        return costRequest;
     }
 
 }

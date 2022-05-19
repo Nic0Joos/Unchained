@@ -37,7 +37,7 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
-    @PutMapping(path = "/profile")
+    @PutMapping(path = "/user/profile")
     public ResponseEntity<User> putUser(@RequestBody User user) {
         try {
             user.setUserId(userService.getCurrentUser().getUserId());

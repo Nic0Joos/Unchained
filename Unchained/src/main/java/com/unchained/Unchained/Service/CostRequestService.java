@@ -1,6 +1,8 @@
 package com.unchained.Unchained.Service;
 
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ResourceUtils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -17,7 +19,8 @@ public class CostRequestService {
 
         double shippingCosts;
 
-        File costFile = new File("src/main/resources/costs.txt");
+        ClassPathResource classPathResource = new ClassPathResource("costs.txt");
+        File costFile = classPathResource.getFile();
         Scanner scanner = new Scanner(new BufferedReader(new FileReader(costFile)));
 
         final int rows = 12;

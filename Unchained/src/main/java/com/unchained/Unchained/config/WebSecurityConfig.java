@@ -41,11 +41,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        /*http
-                .csrf().disable()
-                .authorizeRequests().antMatchers("/").permitAll();*/
-
         http
+                .csrf().disable()
+                .authorizeRequests().antMatchers("/").permitAll();
+
+        /*http
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER).and()
                 .requiresChannel().requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null).requiresSecure().and() // If the X-Forwarded-Proto header is present, redirect to HTTPS (Heroku)
                 .csrf()
@@ -61,7 +61,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/")
-                .addLogoutHandler(new TokenLogoutHandler(tokenService));
+                .addLogoutHandler(new TokenLogoutHandler(tokenService));*/
 
     }
 
