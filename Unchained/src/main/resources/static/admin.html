@@ -22,7 +22,7 @@
                     <li class="nav-item"><a class="nav-link" href="customer.html">Customer&nbsp;</a></li>
                     <li class="nav-item"><a class="nav-link" href="shop.html">Product Shop</a></li>
                     <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
-                    <li class="nav-item d-none"><a class="nav-link active" href="admin.html">Admin</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="admin.html">Admin</a></li>
                 </ul><button class="btn btn-primary d-none" type="button">Logout</button>
             </div>
         </div>
@@ -35,24 +35,54 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-md-5 feature-box"><i class="icon-screen-smartphone icon"></i>
-                        <h4>Password</h4>
-                        <form>
-                            <div class="mb-3"></div>
-                            <div class="mb-3"><label class="form-label" for="password">Password</label><input class="form-control" type="password" id="password" name="password"></div>
-                            <div class="mb-3"></div>
-                        </form><button class="btn btn-primary" type="button">Save changes</button>
+                    <div class="col-md-12 feature-box">
+                        <h4>Products</h4>
+                        <table class="table table-borderless">
+                            <thead>
+                            <tr>
+                                <th>ID </th>
+                                <th>Name </th>
+                                <th>Price </th>
+                                <th>Max. Amount </th>
+                                <th>Min. Pallets </th>
+                            </tr>
+                            </thead>
+                            <tbody id="ProductTableData">
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="col-md-5 feature-box"><i class="icon-screen-smartphone icon"></i>
-                        <h4>Create a product</h4>
-                        <form>
-                            <div class="mb-3"></div>
-                            <div class="mb-3"><label class="form-label" for="name">Password</label><input class="form-control" type="text"  id="name" name="name"></div>
-                            <div class="mb-3"><label class="form-label" for="MaxAmount">Maximum Amount</label><input class="form-control" type="text" id="MaxAmount" name="MaxAmount"></div>
-                            <div class="mb-3"><label class="form-label" for="Pallets">Storage space</label><input class="form-control" type="text" id="Pallets" name="Pallets"></div>
-                            <div class="mb-3"><label class="form-label" for="Price">Price</label><input class="form-control" type="number" min="0" id="Price" name="Price"></div>
-                            <div class="mb-3"></div>
-                        </form><button class="btn btn-primary" type="button">Save changes</button>
+                    <div class="col-md-12 feature-box">
+                        <h4>Orders</h4>
+                        <table class="table table-borderless">
+                            <thead>
+                            <tr>
+                                <th>ID </th>
+                                <th>AmountA </th>
+                                <th>AmountB </th>
+                                <th>AmountC </th>
+                                <th>AmountD </th>
+                                <th>User </th>
+                            </tr>
+                            </thead>
+                            <tbody id="OrderTableData">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-12 feature-box"><i class="icon-screen-smartphone icon"></i>
+                        <h4>Users</h4>
+                        <table class="table table-borderless">
+                            <thead>
+                            <tr>
+                                <th>ID </th>
+                                <th>Name </th>
+                                <th>email </th>
+                                <th>Street </th>
+                                <th>city </th>
+                            </tr>
+                            </thead>
+                            <tbody id="UserTableData">
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
