@@ -34,7 +34,7 @@ public class User {
         this.street = street;
         this.ZIPCode = ZIPCode;
         this.city = city;
-        Traveldistance = traveldistance;
+        this.Traveldistance = traveldistance;
         this.email = email;
         this.isAnAdmin = isAnAdmin;
         this.password = password;
