@@ -154,9 +154,9 @@
                 var ProductPrice = ($("#Amount_ProductA").val()*$("#Price_ProductA"))+($("#Amount_ProductB").val()*$("#Price_ProductB"))+($("#Amount_ProductC").val()*$("#Price_ProductC"))+($("#Amount_ProductD").val()*$("#Price_ProductD"));
 
                 getCost(FinalPallets, function(result){
-                    $("#ShippingPrice").html("The shipping price is:" + result.ShippingPrice);
-                    $("#ProductPrice").html("The price for products is:" + ProductPrice);
-                    $("#Totalprice").html("The total is:" + result.ShippingPrice + ProductPrice);
+                    $("#ShippingPrice").html("The shipping price is: " + result.ShippingPrice);
+                    $("#ProductPrice").html("The price for products is: " + ProductPrice);
+                    $("#Totalprice").html("The total is: " + result.ShippingPrice + ProductPrice);
                     if(result) {
                         $("#CalculateBtn").hide();
                         $("#OrderBtn").show();
