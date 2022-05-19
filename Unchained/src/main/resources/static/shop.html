@@ -146,17 +146,17 @@
         $(document).ready(function () {
 
             $("#CalculateBtn").click(function (event) {
-                var AmountProductA = Math.ceil(Math.ceil($("Amount_ProductA").val() / $("MaxAmount_ProductA").val()) * $("MinPallets_ProductA").val());
-                var AmountProductB = Math.ceil(Math.ceil($("Amount_ProductB").val() / $("MaxAmount_ProductB").val()) * $("MinPallets_ProductB").val());
-                var AmountProductC = Math.ceil(Math.ceil($("Amount_ProductC").val() / $("MaxAmount_ProductC").val()) * $("MinPallets_ProductC").val());
-                var AmountProductD = Math.ceil(Math.ceil($("Amount_ProductD").val() / $("MaxAmount_ProductD").val()) * $("MinPallets_ProductD").val());
+                var AmountProductA = Math.ceil(Math.ceil($("#Amount_ProductA").val() / $("#MaxAmount_ProductA").val()) * $("#MinPallets_ProductA").val());
+                var AmountProductB = Math.ceil(Math.ceil($("#Amount_ProductB").val() / $("#MaxAmount_ProductB").val()) * $("#MinPallets_ProductB").val());
+                var AmountProductC = Math.ceil(Math.ceil($("#Amount_ProductC").val() / $("#MaxAmount_ProductC").val()) * $("#MinPallets_ProductC").val());
+                var AmountProductD = Math.ceil(Math.ceil($("#Amount_ProductD").val() / $("#MaxAmount_ProductD").val()) * $("MinPallets_ProductD").val());
                 var FinalPallets = Math.max(AmountProductA, AmountProductB, AmountProductC, AmountProductD);
-                var ProductPrice = ($("Amount_ProductA").val()*$("Price_ProductA"))+($("Amount_ProductB").val()*$("Price_ProductB"))+($("Amount_ProductC").val()*$("Price_ProductC"))+($("Amount_ProductD").val()*$("Price_ProductD"));
+                var ProductPrice = ($("#Amount_ProductA").val()*$("#Price_ProductA"))+($("#Amount_ProductB").val()*$("#Price_ProductB"))+($("#Amount_ProductC").val()*$("#Price_ProductC"))+($("#Amount_ProductD").val()*$("#Price_ProductD"));
 
                 getCost(FinalPallets, function(result){
-                    $("ShippingPrice").html("The shipping price is:" + result.ShippingPrice);
-                    $("ProductPrice").html("The price for products is:" + ProductPrice);
-                    $("Totalprice").html("The total is:" + result.ShippingPrice + ProductPrice);
+                    $("#ShippingPrice").html("The shipping price is:" + result.ShippingPrice);
+                    $("#ProductPrice").html("The price for products is:" + ProductPrice);
+                    $("#Totalprice").html("The total is:" + result.ShippingPrice + ProductPrice);
                     if(result) {
                         $("#CalculateBtn").hide();
                         $("#OrderBtn").show();
@@ -165,12 +165,12 @@
             });
 
             $("#OrderBtn").click(function(event){
-                var AmountProductA = $("Amount_1").val();
-                var AmountProductB = $("Amount_2").val();
-                var AmountProductC = $("Amount_3").val();
-                var AmountProductD = $("Amount_4").val();
-                var ShippingPrice = $("ShippingPrice").val();
-                var Totalprice = $("Totalprice").val();
+                var AmountProductA = $("#Amount_1").val();
+                var AmountProductB = $("#Amount_2").val();
+                var AmountProductC = $("#Amount_3").val();
+                var AmountProductD = $("#Amount_4").val();
+                var ShippingPrice = $("#ShippingPrice").val();
+                var Totalprice = $("#Totalprice").val();
 
                
                 postOrder(AmountProductA, AmountProductB, AmountProductC, AmountProductD, ShippingPrice, Totalprice,  function (result){
