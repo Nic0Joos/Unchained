@@ -48,7 +48,7 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping(path = "/profile")
+    @GetMapping(path = "/profile", produces = "application/json")
     public @ResponseBody User getProfile() {
         return userService.getCurrentUser();
     }

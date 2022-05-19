@@ -44,6 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests().antMatchers("/").permitAll();
+    }
 
         /*http
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER).and()
@@ -62,7 +63,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/")
                 .addLogoutHandler(new TokenLogoutHandler(tokenService));
 
-    }
+    }*/
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -73,7 +74,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
-    }*/
-
     }
+
+
 }

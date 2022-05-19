@@ -83,7 +83,8 @@
             $("#form").submit(function (event) {
                 login($('input[name=email]').val(), $('input[name=password]').val(), function (result) {
                     if(result) {
-                        window.location.replace("../");
+                        $("#error-modal").modal('show');
+                        $("#error-text").text("Good credentials!");
                     }
                     else {
                         $("#error-modal").modal('show');
