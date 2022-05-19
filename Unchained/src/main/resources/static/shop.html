@@ -159,9 +159,9 @@
 
 
                 getCost(FinalPallets, function(result){
-                    $("#ShippingPrice").html("The shipping price is:" + result.ShippingPrice);
-                    $("#ProductPrice").html("The price for products is:" + ProductPrice);
-                    $("#Totalprice").html("The total is:" + result.ShippingPrice + ProductPrice);
+                    $("#ShippingPrice").html("The shipping price is: " + result.ShippingPrice);
+                    $("#ProductPrice").html("The price for products is: " + ProductPrice);
+                    $("#Totalprice").html("The total is: " + result.ShippingPrice + ProductPrice);
                     if(result) {
                         $("#CalculateBtn").hide();
                         $("#OrderBtn").show();
