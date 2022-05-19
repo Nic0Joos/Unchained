@@ -1,5 +1,6 @@
 package com.unchained.Unchained.Data.Domain;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -28,20 +29,48 @@ public class User {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
+    @JsonCreator
+    public User(){}
 
-    public User(String name, String street, int ZIPCode, String city, int traveldistance, String email, boolean isAnAdmin, String password) {
+    @JsonCreator
+    public User(Long userId, String name, String street, int ZIPCode, String city, int traveldistance, String email, boolean isAnAdmin, String password) {
+        this.userId = userId;
         this.name = name;
         this.street = street;
         this.ZIPCode = ZIPCode;
         this.city = city;
-        this.Traveldistance = traveldistance;
+        Traveldistance = traveldistance;
         this.email = email;
         this.isAnAdmin = isAnAdmin;
         this.password = password;
     }
 
-    public User(String email, String password, List<Object> emptyList) {
+    @JsonCreator
+    public User(String name, String street, int ZIPCode, String city, int traveldistance, String email, boolean isAnAdmin, String password) {
+        this.name = name;
+        this.street = street;
+        this.ZIPCode = ZIPCode;
+        this.city = city;
+        Traveldistance = traveldistance;
+        this.email = email;
+        this.isAnAdmin = isAnAdmin;
+        this.password = password;
     }
+
+    @JsonCreator
+    public User(String name, String street, int ZIPCode, String city, String email, boolean isAnAdmin, String password) {
+        this.name = name;
+        this.street = street;
+        this.ZIPCode = ZIPCode;
+        this.city = city;
+        this.email = email;
+        this.isAnAdmin = isAnAdmin;
+        this.password = password;
+    }
+
+    public <T> User(String email, String password, List<T> emptyList) {
+    }
+
 
     //getter and setter
     public Long getUserId() { return userId; }

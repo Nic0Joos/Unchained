@@ -38,6 +38,8 @@ public class ProductEndpoint {
         return ResponseEntity.created(location).body(product);
     }
 
+
+    //Tested with PostMan: 19.05.2022
     @GetMapping(path = "/product", produces = "application/json")
     public List<Product> getProducts(){
         return productService.getAllProducts();

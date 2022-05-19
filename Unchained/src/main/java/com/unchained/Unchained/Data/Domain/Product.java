@@ -1,5 +1,7 @@
 package com.unchained.Unchained.Data.Domain;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,6 +18,19 @@ public class Product {
     private Double minPalletSpace;
     private Double price;
 
+    @JsonCreator
+    public Product(){}
+
+    @JsonCreator
+    public Product(Long productId, String productName, Long maxAmount, Double minPalletSpace, Double price) {
+        this.productId = productId;
+        this.productName = productName;
+        this.maxAmount = maxAmount;
+        this.minPalletSpace = minPalletSpace;
+        this.price = price;
+    }
+
+    @JsonCreator
     public Product(String productName, Long maxAmount, Double minPalletSpace, Double price) {
         this.productName = productName;
         this.maxAmount = maxAmount;
