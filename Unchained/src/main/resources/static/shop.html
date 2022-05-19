@@ -101,7 +101,7 @@
                             <p>The price for the products is:</p><span id="ProductPrice"></span>
                             <p>The total is:</p><span id="Totalprice"></span>
                             <div class="text-center price"><button class="btn btn-primary btn-lg" type="submit" id="CalculateBtn" name="CalculateBtn">Calculate Costs</button></div>
-                            <button id="OrderBtn" class="btn btn-primary" type="button">Order</button>
+                            <div class="text-center price"></div><button id="OrderBtn" class="btn btn-primary" type="button">Order</button></div>
                         </div>
                     </div>
                 </div>
@@ -157,8 +157,10 @@
                     $("ShippingPrice").html("The shipping price is:" + result.ShippingPrice);
                     $("ProductPrice").html("The price for products is:" + ProductPrice);
                     $("Totalprice").html("The total is:" + result.ShippingPrice + ProductPrice);
-                    if(result)
+                    if(result) {
                         $("#CalculateBtn").hide();
+                        $("#OrderBtn").show();
+                    }
                 });
             });
 
