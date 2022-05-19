@@ -4,10 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Shop</title>
-    <link rel="icon" type="image/png" href="assets/img/Favicon1.png">
+    <title>Pricing - Brand</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&amp;display=swap">
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
     <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
@@ -22,8 +21,7 @@
                     <li class="nav-item"><a class="nav-link" href="customer.html">Customer&nbsp;</a></li>
                     <li class="nav-item"><a class="nav-link active" href="shop.html">Product Shop</a></li>
                     <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="admin.html">Admin</a></li>
-                </ul><button class="btn btn-primary d-none" type="button">Logout</button>
+                </ul>
             </div>
         </div>
     </nav>
@@ -101,11 +99,9 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </section>
-        <!--<div id="modal-1" class="modal hide fade " role="dialog" tabindex="-1" style="display: block;">
+        <div id="modal-1" class="modal hide fade " role="dialog" tabindex="-1" style="display: block;">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -119,8 +115,7 @@
                     <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button id="OrderBtn" class="btn btn-primary" type="button">Order</button></div>
                 </div>
             </div>
-        </div>-->
-
+        </div>
     </main>
     <footer class="page-footer dark">
         <div class="container">
@@ -130,7 +125,7 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="register.html">Sign up</a></li>
-                        <li><a href="Shop.html">Shop</a></li>
+                        <li><a href="shop.html">Shop</a></li>
                     </ul>
                 </div>
             </div>
@@ -140,19 +135,18 @@
         </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-   <!-- <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <!--<script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>-->
     <script src="assets/js/vanilla-zoom.js"></script>
     <script src="assets/js/theme.js"></script>
-    <script src="assets/js/app.js"></script>
 
     <!--<script language="JavaScript">
-    validateLogin(function (result) {
-    if (!result) {
-    window.location.replace("../login");
-    }
-    });
-    </script>-->
+        validateLogin(function (result) {
+        if (!result) {
+        window.location.replace("../login");
+        }
+        });
+        </script>-->
 
     <script>
         $(document).ready(function () {
@@ -180,7 +174,7 @@
                 var ShippingPrice = $("ShippingPrice").val();
                 var Totalprice = $("Totalprice").val();
 
-               
+
                 postOrder(AmountProductA, AmountProductB, AmountProductC, AmountProductD, ShippingPrice, Totalprice,  function (result){
                     if (result)
                         window.location.reload();
@@ -191,7 +185,6 @@
         });
 
     </script>
-
 </body>
 
 </html>
