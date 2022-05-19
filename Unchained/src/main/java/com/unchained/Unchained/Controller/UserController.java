@@ -53,6 +53,11 @@ public class UserController {
         return userService.getCurrentUser();
     }
 
+    @GetMapping(path = "/user")
+    public String getProfileView() {
+        return "customer.html";
+    }
+
     @GetMapping(path = "/user/register")
     public String getRegisterView(){
         return "register.html";
