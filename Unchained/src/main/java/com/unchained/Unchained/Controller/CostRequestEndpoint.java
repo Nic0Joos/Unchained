@@ -27,7 +27,7 @@ public class CostRequestEndpoint {
     @GetMapping(path="/costrequest")
     public @ResponseBody CostRequest getShippingCosts(@RequestBody CostRequest costRequest){
         try {
-            costRequest.setPrice(costRequestService.getCosts(costRequest.getPallets(), userDetailsServiceImp.getCurrentUser().getTraveldistance()));
+            costRequest.setPrice(costRequestService.getCosts(costRequest.getPallets(), 50));// userDetailsServiceImp.getCurrentUser().getTraveldistance()));
         } catch (Exception e) {
             loggerService.logSystem("warning",e.toString());
         }
