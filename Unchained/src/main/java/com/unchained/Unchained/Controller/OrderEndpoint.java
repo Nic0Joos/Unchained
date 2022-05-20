@@ -16,7 +16,7 @@ import java.util.List;
 
 //Author: Luca
 @RestController
-@RequestMapping(path = "/api")
+@RequestMapping(path = "/order")
 public class OrderEndpoint {
 
 
@@ -29,7 +29,7 @@ public class OrderEndpoint {
     @Autowired
     private LoggerService loggerService;
 
-    @PostMapping(path = "/order", consumes = "application/json", produces = "application/json")
+    @PostMapping(path = "/create", consumes = "application/json", produces = "application/json")
     public ResponseEntity<Ordering> postOrder(@RequestBody Ordering ordering){
         try {
             //ordering.setUser(userDetailsServiceImp.getCurrentUser());
@@ -42,18 +42,18 @@ public class OrderEndpoint {
     }
 
     //all orders
-    @GetMapping(path="/order", produces = "application/json")
+    @GetMapping(path="/", produces = "application/json")
     public List<Ordering> getAllOrders() {
         return orderService.findAllOrders();
     }
 
     //Put and Delete of orders forbidden
-    @PutMapping(path="/order/{orderID}")
+    @PutMapping(path="/change/{orderID}")
     public Exception putOrder() {
         return new ResponseStatusException(HttpStatus.FORBIDDEN);
     }
 
-    @DeleteMapping(path="/order/{orderID}")
+    @DeleteMapping(path="/delete/{orderID}")
     public Exception deleteOrder() {
         return new ResponseStatusException(HttpStatus.FORBIDDEN);
     }
