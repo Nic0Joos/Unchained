@@ -163,7 +163,7 @@
                     $("#Totalprice").html(parseFloat(data.price + ProductPrice).toFixed(2));
                     if(result) {
                         $("#CalculateBtn").hide();
-                        $("#OrderBtn").show();
+                        $("#OrderBtn").removeAttr("hidden");
                     }
                 });
             });
@@ -173,9 +173,10 @@
                 var AmountProductB = $("#Amount_2").val();
                 var AmountProductC = $("#Amount_3").val();
                 var AmountProductD = $("#Amount_4").val();
-                var ShippingPrice = $("#ShippingPrice").val();
-                var Totalprice = $("#Totalprice").val();
-
+                var ShippingPrice = $("#ShippingPrice").text();
+                var Totalprice = $("#Totalprice").text();
+                console.log($("#ShippingPrice").text());
+                console.log($("#Totalprice").text());
                
                 postOrder(AmountProductA, AmountProductB, AmountProductC, AmountProductD, ShippingPrice, Totalprice,  function (result){
                     if (result)

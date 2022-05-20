@@ -38,8 +38,7 @@ public class OrderEndpoint {
             LoggerService.logSystem("warning", "Order couldn't be processed: " + e.toString());
             throw new ResponseStatusException(HttpStatus.CONFLICT, e.getMessage());
         }
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{orderId}").buildAndExpand(ordering.getOrderId()).toUri();
-        return ResponseEntity.created(location).body(ordering);
+        return ResponseEntity.ok().build();
     }
 
     //all orders
