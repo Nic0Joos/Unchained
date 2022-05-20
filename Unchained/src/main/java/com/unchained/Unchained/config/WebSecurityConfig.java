@@ -44,7 +44,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests().antMatchers("/").permitAll();
-    }
 
         /*http
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER).and()
@@ -53,7 +52,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .requireCsrfProtectionMatcher(new CSRFRequestMatcher())
                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
                 .authorizeRequests()
-                .antMatchers("/", "/assets/**", "/user/**", "/login/**").permitAll()
+                .antMatchers("/", "/index", "/assets/**", "/login/**","/user/register").permitAll()
+                .antMatchers("/profile/**", "/api/**", "/admin/**", "/shop").authenticated()
                 .antMatchers(HttpMethod.GET, "/logout").permitAll()
                 .anyRequest().authenticated().and()
                 .addFilter(new TokenLoginFilter(authenticationManagerBean(), tokenService))
@@ -61,9 +61,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/")
-                .addLogoutHandler(new TokenLogoutHandler(tokenService));
+                .addLogoutHandler(new TokenLogoutHandler(tokenService));*/
 
-    }*/
+    }
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {

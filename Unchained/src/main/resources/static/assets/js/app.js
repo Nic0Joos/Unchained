@@ -80,12 +80,12 @@ function validateLogin(callback) {
 //Author: Nico
 function getCost(FinalPallets, callback){
     $.ajax({
-        type: "GET",
+        type: "POST",
         contentType: "application/json",
         headers: {
             "X-XSRF-TOKEN": getCookie("XSRF-TOKEN")
         },
-        url: serviceEndpointURL + "/api/costrequest",
+        url: serviceEndpointURL + "/costrequest",
         data: JSON.stringify({
             "pallets": FinalPallets
         }),
