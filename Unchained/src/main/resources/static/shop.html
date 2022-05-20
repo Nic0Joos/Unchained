@@ -41,8 +41,8 @@
                                 <h3 id="Name_ProductA">Product A</h3>
                             </div>
                             <div class="features">
-                                <h4><span class="feature">Maximum Amount:&nbsp;</span><span id="MaxAmount_ProductA">25</span></h4>
-                                <h4><span class="feature">Pallets:&nbsp;</span><span id="MinPallets_ProductA">1.2</span></h4>
+                                <h4><span class="feature">Maximum Amount:&nbsp;</span><span value="25" id="MaxAmount_ProductA">25</span></h4>
+                                <h4><span class="feature">Pallets:&nbsp;</span><span value="1.2" id="MinPallets_ProductA">1.2</span></h4>
                                 <h4><span class="feature">Amount:&nbsp;</span><input id="Amount_ProductA" class="form-control-sm" type="number" value="0" min="0" max="250"  placeholder="Enter amount"></h4>
                             </div>
                             <div class="price">
@@ -56,8 +56,8 @@
                                 <h3 id="Name_ProductB">Product B</h3>
                             </div>
                             <div class="features">
-                                <h4><span class="feature">Maximum Amount:&nbsp;</span><span id="MaxAmount_ProductB">10</span></h4>
-                                <h4><span class="feature">Pallets:&nbsp;</span><span id="MinPallets_ProductB">2</span></h4>
+                                <h4><span class="feature">Maximum Amount:&nbsp;</span><span value="10" id="MaxAmount_ProductB">10</span></h4>
+                                <h4><span class="feature">Pallets:&nbsp;</span><span value="2" id="MinPallets_ProductB">2</span></h4>
                                 <h4><span class="feature">Amount:&nbsp;</span><input id="Amount_ProductB" class="form-control-sm" type="number" value="0"  min="0" max="60"  placeholder="Enter amount"></h4>
                             </div>
                             <div class="price">
@@ -86,8 +86,8 @@
                                 <h3 id="Name_ProductD">Product D</h3>
                             </div>
                             <div class="features">
-                                <h4><span class="feature">Maximum Amount:&nbsp;</span><span id="MaxAmount_ProductD">100</span></h4>
-                                <h4><span class="feature">Pallets:&nbsp;</span><span id="MinPallets_ProductD">0.8</span></h4>
+                                <h4><span class="feature">Maximum Amount:&nbsp;</span><span value="100" id="MaxAmount_ProductD">100</span></h4>
+                                <h4><span class="feature">Pallets:&nbsp;</span><span value="0.8" id="MinPallets_ProductD">0.8</span></h4>
                                 <h4><span class="feature">Amount:&nbsp;</span><input id="Amount_ProductD" class="form-control-sm" type="number" value="0"  min="0" max="1500"  placeholder="Enter amount"></h4>
                             </div>
                             <div class="price">
@@ -146,22 +146,23 @@
         $(document).ready(function () {
 
             $("#CalculateBtn").click(function (event) {
-                var AmountProductA = Math.ceil(Math.ceil(parseInt($("#Amount_ProductA").val()) / parseInt($("#MaxAmount_ProductA").val())) * parseInt($("#MinPallets_ProductA").val()));
-                var AmountProductB = Math.ceil(Math.ceil(parseInt($("#Amount_ProductB").val()) / parseInt($("#MaxAmount_ProductB").val())) * parseInt($("#MinPallets_ProductB").val()));
-                var AmountProductC = Math.ceil(Math.ceil(parseInt($("#Amount_ProductC").val()) / parseInt($("#MaxAmount_ProductC").val())) * parseInt($("#MinPallets_ProductC").val()));
-                var AmountProductD = Math.ceil(Math.ceil(parseInt($("#Amount_ProductD").val()) / parseInt($("#MaxAmount_ProductD").val())) * parseInt($("MinPallets_ProductD").val()));
+                var AmountProductA = Math.ceil(Math.ceil(parseInt($("#Amount_ProductA").val()) / 25) * 1.2);
+                var AmountProductB = Math.ceil(Math.ceil(parseInt($("#Amount_ProductB").val()) / 10) * 2);
+                var AmountProductC = Math.ceil(Math.ceil(parseInt($("#Amount_ProductC").val()) / 15) * 2.5);
+                var AmountProductD = Math.ceil(Math.ceil(parseInt($("#Amount_ProductD").val()) / 100) * 0.8);
                 var FinalPallets = Math.max(AmountProductA, AmountProductB, AmountProductC, AmountProductD);
-                var ProductPrice = (parseInt($("#Amount_ProductA").val())*parseInt($("#Price_ProductA")))
-                +(parseInt($("#Amount_ProductB").val())*parseInt($("#Price_ProductB")))
-                +(parseInt($("#Amount_ProductC").val())*parseInt($("#Price_ProductC")))
-                +(parseInt($("#Amount_ProductD").val())*parseInt($("#Price_ProductD")));
+                var ProductPrice = (parseInt($("#Amount_ProductA").val()) * 13.5)
+                +(parseInt($("#Amount_ProductB").val()) * 15)
+                +(parseInt($("#Amount_ProductC").val()) * 11.90)
+                +(parseInt($("#Amount_ProductD").val()) * 2.5);
+                console.log(ProductPrice);
 
 
 
                 getCost(FinalPallets, function(result){
-                    $("#ShippingPrice").html(result.ShippingPrice);
+                    $("#ShippingPrice").html(result.price);
                     $("#ProductPrice").html(ProductPrice);
-                    $("#Totalprice").html(result.ShippingPrice + ProductPrice);
+                    $("#Totalprice").html(result.price + ProductPrice);
                     if(result) {
                         $("#CalculateBtn").hide();
                         $("#OrderBtn").show();
