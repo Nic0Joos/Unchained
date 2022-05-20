@@ -90,7 +90,7 @@ function getCost(FinalPallets, callback){
             "pallets": FinalPallets
         }),
         success: function (data, textStatus, response) {
-            callback(true);
+            callback(true, data);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(jqXHR, textStatus, errorThrown);
