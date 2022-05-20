@@ -18,7 +18,7 @@ function register(name, street, ZIPCode, city, email, password, callbackSuccess,
         headers: {
             "X-XSRF-TOKEN": getCookie("XSRF-TOKEN")
         },
-        url: serviceEndpointURL + "/user/register",
+        url: serviceEndpointURL + "/register",
         data: JSON.stringify({
             "name": name,
             "street": street,

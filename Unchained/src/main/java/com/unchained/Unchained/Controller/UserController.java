@@ -25,11 +25,12 @@ public class UserController {
     @Autowired
     LoggerService loggerService;
 
-    @PostMapping(path = "/user/register", consumes = {"application/json"}, produces = {"application/json"})
+    @PostMapping(path = "/register", consumes ="application/json", produces ="application/json")
     public ResponseEntity<Void> postRegister(@RequestBody User user) {
         try {
             user.setTraveldistance(distanceCalculatorService.getDistance(user.getZIPCode()));
             userService.saveUser(user);
+            loggerService.logUser("User: " + user + "was created.");
         } catch (Exception e) {
             loggerService.logSystem("warning", e.toString());
             new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
@@ -37,7 +38,7 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
-    @PutMapping(path = "/user/profile")
+    @PutMapping(path = "/profile")
     public ResponseEntity<User> putUser(@RequestBody User user) {
         try {
             user.setUserId(userService.getCurrentUser().getUserId());
@@ -58,7 +59,7 @@ public class UserController {
         return "customer.html";
     }
 
-    @GetMapping(path = "/user/register")
+    @GetMapping(path = "/register")
     public String getRegisterView(){
         return "register.html";
     }
