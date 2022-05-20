@@ -17,6 +17,8 @@ public class StartUpService implements ApplicationListener<ApplicationReadyEvent
     @Autowired
     ProductService productService;
 
+    @Autowired
+    LoggerService loggerService;
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
@@ -28,8 +30,9 @@ public class StartUpService implements ApplicationListener<ApplicationReadyEvent
 
         try {
             userDetailsServiceImp.saveUser(new User("admin", "Peter-Merian-Strasse 86", 4052, "Basel", 1, "admin@unchained.com", true, "adminpassword"));
+            loggerService.logUser("Default Admin created");
         } catch (Exception e) {
-            e.printStackTrace();
+            loggerService.logSystem("info", "Default admin creation failed");
         }
 
     }
@@ -41,9 +44,9 @@ public class StartUpService implements ApplicationListener<ApplicationReadyEvent
         productService.saveProduct(new Product("Prod. B",  10L, 2.0, 15.0));
         productService.saveProduct(new Product("Prod. C",  15L, 2.5, 11.90));
         productService.saveProduct(new Product("Prod. D", 100L, 0.8, 2.50));
-
+            loggerService.logSystem("info", "Default Products created");
         } catch (Exception e) {
-            e.printStackTrace();
+            loggerService.logSystem("info", "Default Products creation failed");
         }
     }
 

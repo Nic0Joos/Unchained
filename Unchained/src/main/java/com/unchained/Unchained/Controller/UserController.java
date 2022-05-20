@@ -26,7 +26,7 @@ public class UserController {
     LoggerService loggerService;
 
     @PostMapping(path = "/register", consumes ="application/json", produces ="application/json")
-    public ResponseEntity<Void> postRegister(@RequestBody User user) {
+    public ResponseEntity<User> postRegister(@RequestBody User user) {
         try {
             user.setTraveldistance(distanceCalculatorService.getDistance(user.getZIPCode()));
             userService.saveUser(user);

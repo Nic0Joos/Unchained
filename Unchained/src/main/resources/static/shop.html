@@ -98,9 +98,9 @@
                     </div>
                     <div class="col-md-5 col-lg-5">
                         <div class="clean-pricing-item">
-                            <h4><span class="feature">Shipping Costs: CHF </span><span id="ShippingPrice"></span></h4>
-                            <h4><span class="feature">Product Costs: CHF </span><span id="ProductPrice"></span></h4>
-                            <h4><span class="feature">The total is: CHF </span><span id="Totalprice"></span></h4>
+                            <h4><span class="feature">Shipping Costs: CHF&nbsp;</span><span id="ShippingPrice"></span></h4>
+                            <h4><span class="feature">Product Costs: CHF&nbsp;</span><span id="ProductPrice"></span></h4>
+                            <h4><span class="feature">The total is: CHF&nbsp;</span><span id="Totalprice"></span></h4>
                             <div class="text-center price"><button class="btn btn-primary btn-lg" type="button" id="CalculateBtn" name="CalculateBtn">Calculate Costs</button></div>
                             <div class="text-center price"><button class="btn btn-primary btn-lg" hidden type="button" id="OrderBtn" name="OrderBtn">Order</button></div>
                         </div>
@@ -170,10 +170,10 @@
             });
 
             $("#OrderBtn").click(function(event){
-                var AmountProductA = $("#Amount_1").val();
-                var AmountProductB = $("#Amount_2").val();
-                var AmountProductC = $("#Amount_3").val();
-                var AmountProductD = $("#Amount_4").val();
+                var AmountProductA = $("#Amount_ProductA").val();
+                var AmountProductB = $("#Amount_ProductB").val();
+                var AmountProductC = $("#Amount_ProductC").val();
+                var AmountProductD = $("#Amount_ProductD").val();
                 var ShippingPrice = $("#ShippingPrice").text();
                 var Totalprice = $("#Totalprice").text();
                 console.log($("#ShippingPrice").text());
