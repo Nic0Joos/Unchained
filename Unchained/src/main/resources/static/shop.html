@@ -158,9 +158,9 @@
 
                 getCost(FinalPallets, function(result, data){
                     console.log("Result from server is: " + result);
-                    $("#ShippingPrice").html(parseFloat(result.price).toFixed(2));
+                    $("#ShippingPrice").html(parseFloat(data.price).toFixed(2));
                     $("#ProductPrice").html(parseFloat(ProductPrice).toFixed(2));
-                    $("#Totalprice").html(parseFloat(result.price + ProductPrice).toFixed(2));
+                    $("#Totalprice").html(parseFloat(data.price + ProductPrice).toFixed(2));
                     if(result) {
                         $("#CalculateBtn").hide();
                         $("#OrderBtn").show();
