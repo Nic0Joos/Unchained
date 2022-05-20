@@ -155,15 +155,12 @@
                 +(parseInt($("#Amount_ProductB").val()) * 15)
                 +(parseInt($("#Amount_ProductC").val()) * 11.90)
                 +(parseInt($("#Amount_ProductD").val()) * 2.5);
-                console.log(ProductPrice);
-
-
 
                 getCost(FinalPallets, function(result, data){
                     console.log("Result from server is: " + result);
-                    $("#ShippingPrice").html(result.price);
-                    $("#ProductPrice").html(ProductPrice);
-                    $("#Totalprice").html(result.price + ProductPrice);
+                    $("#ShippingPrice").html(parseFloat(result.price).toFixed(2));
+                    $("#ProductPrice").html(parseFloat(ProductPrice).toFixed(2));
+                    $("#Totalprice").html(parseFloat(result.price + ProductPrice).toFixed(2));
                     if(result) {
                         $("#CalculateBtn").hide();
                         $("#OrderBtn").show();
