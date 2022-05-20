@@ -16,7 +16,7 @@ import java.util.List;
 
 //Author: Luca
 @RestController
-@RequestMapping (path = "/order")
+@RequestMapping(path = "/api")
 public class OrderEndpoint {
 
 
@@ -29,7 +29,7 @@ public class OrderEndpoint {
     @Autowired
     private LoggerService loggerService;
 
-    @PostMapping(path = "/create", consumes = "application/json",produces = "application/json")
+    @PostMapping(path = "/order", consumes = "application/json", produces = "application/json")
     public ResponseEntity<Ordering> postOrder(@RequestBody Ordering ordering){
         try {
             //ordering.setUser(userDetailsServiceImp.getCurrentUser());
