@@ -18,9 +18,9 @@ public class Ordering {
     private int amountD;
     private Long shippingCost;
     private Long orderPrice;
-    @ManyToOne
+    /*@ManyToOne
     @JsonIgnore
-    private User user;
+    private User user;*/
 
 
     public Long getOrderId() {
@@ -78,12 +78,12 @@ public class Ordering {
     public void setOrderPrice(Long orderPrice) {
         this.orderPrice = orderPrice;
     }
-
+    /*
     public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
-    }
+    }*/
 }

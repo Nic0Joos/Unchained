@@ -32,7 +32,7 @@ public class OrderEndpoint {
     @PostMapping(path = "/order", consumes = "application/json",produces = "application/json")
     public ResponseEntity<Ordering> postOrder(@RequestBody Ordering ordering){
         try {
-            ordering.setUser(userDetailsServiceImp.getCurrentUser());
+            //ordering.setUser(userDetailsServiceImp.getCurrentUser());
             orderService.saveOrder(ordering);
         } catch (Exception e) {
             LoggerService.logSystem("warning", "Order couldn't be processed: " + e.toString());
