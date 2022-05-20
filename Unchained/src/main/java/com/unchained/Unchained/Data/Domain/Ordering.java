@@ -16,8 +16,8 @@ public class Ordering {
     private int amountB;
     private int amountC;
     private int amountD;
-    private Long shippingCost;
-    private Long orderPrice;
+    private double shippingCost;
+    private double orderPrice;
     /*@ManyToOne
     @JsonIgnore
     private User user;*/
@@ -63,7 +63,7 @@ public class Ordering {
         this.amountD = amountD;
     }
 
-    public Long getShippingCost() {
+    public double getShippingCost() {
         return shippingCost;
     }
 
@@ -71,7 +71,7 @@ public class Ordering {
         this.shippingCost = shippingCost;
     }
 
-    public Long getOrderPrice() {
+    public double getOrderPrice() {
         return orderPrice;
     }
 

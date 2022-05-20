@@ -108,17 +108,17 @@ function postOrder(AmountProductA, AmountProductB, AmountProductC, AmountProduct
         headers: {
             "X-XSRF-TOKEN": getCookie("XSRF-TOKEN")
         },
-        url: serviceEndpointURL + "/api/order",
+        url: serviceEndpointURL + "/order/create",
         data: JSON.stringify({
             "amountA": AmountProductA,
             "amountB": AmountProductB,
             "amountC": AmountProductC,
             "amountD": AmountProductD,
-            "shippingCosts": ShippingPrice,
+            "shippingCost": ShippingPrice,
             "orderPrice": Totalprice
         }),
         success: function (data, textStatus, response) {
-            callbackSuccess(true);
+            callback(true, data);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(jqXHR, textStatus, errorThrown);
