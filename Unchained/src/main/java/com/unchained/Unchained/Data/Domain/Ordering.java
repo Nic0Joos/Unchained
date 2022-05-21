@@ -22,6 +22,30 @@ public class Ordering {
     @JsonIgnore
     private User user;*/
 
+    public Ordering(Long orderId, int amountA, int amountB, int amountC, int amountD, double shippingCost, double orderPrice) {
+        this.orderId = orderId;
+        this.amountA = amountA;
+        this.amountB = amountB;
+        this.amountC = amountC;
+        this.amountD = amountD;
+        this.shippingCost = shippingCost;
+        this.orderPrice = orderPrice;
+    }
+
+    public Ordering(int amountA, int amountB, int amountC, int amountD, double shippingCost, double orderPrice) {
+        this.amountA = amountA;
+        this.amountB = amountB;
+        this.amountC = amountC;
+        this.amountD = amountD;
+        this.shippingCost = shippingCost;
+        this.orderPrice = orderPrice;
+    }
+
+    public Ordering() {
+    }
+
+
+
     //getter & setter
     public Long getOrderId() {
         return orderId;

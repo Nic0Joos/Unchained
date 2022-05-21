@@ -29,10 +29,10 @@ public class User {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
-    @JsonCreator
+
     public User(){}
 
-    @JsonCreator
+
     public User(Long userId, String name, String street, int ZIPCode, String city, int traveldistance, String email, boolean isAnAdmin, String password) {
         this.userId = userId;
         this.name = name;
@@ -45,7 +45,7 @@ public class User {
         this.password = password;
     }
 
-    @JsonCreator
+
     public User(String name, String street, int ZIPCode, String city, int traveldistance, String email, boolean isAnAdmin, String password) {
         this.name = name;
         this.street = street;
@@ -57,7 +57,7 @@ public class User {
         this.password = password;
     }
 
-    @JsonCreator
+
     public User(String name, String street, int ZIPCode, String city, String email, boolean isAnAdmin, String password) {
         this.name = name;
         this.street = street;
