@@ -29,11 +29,13 @@ public class OrderEndpoint {
     @Autowired
     private LoggerService loggerService;
 
+    //Tested with PostMan: 21.05.2022 (Cookie has to be deleted)
     @PostMapping
     public ResponseEntity<Void> postOrder(@RequestBody Ordering ordering){
         try {
             //ordering.setUser(userDetailsServiceImp.getCurrentUser());
             orderService.saveOrder(ordering);
+            LoggerService.logSystem("info", "Order created with ID: " + ordering.getOrderId());
         } catch (Exception e) {
             LoggerService.logSystem("warning", "Order couldn't be processed: " + e.toString());
             throw new ResponseStatusException(HttpStatus.CONFLICT, e.getMessage());
