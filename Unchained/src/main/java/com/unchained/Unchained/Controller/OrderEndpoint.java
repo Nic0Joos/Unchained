@@ -29,7 +29,7 @@ public class OrderEndpoint {
     @Autowired
     private LoggerService loggerService;
 
-    @PostMapping(path = "/create", consumes = "application/json", produces = "application/json")
+    @PostMapping(consumes = "application/json", produces = "application/json")
     public ResponseEntity<Ordering> postOrder(@RequestBody Ordering ordering){
         try {
             //ordering.setUser(userDetailsServiceImp.getCurrentUser());
@@ -42,7 +42,7 @@ public class OrderEndpoint {
     }
 
     //all orders
-    @GetMapping(path="/", produces = "application/json")
+    @GetMapping(produces = "application/json")
     public List<Ordering> getAllOrders() {
         return orderService.findAllOrders();
     }

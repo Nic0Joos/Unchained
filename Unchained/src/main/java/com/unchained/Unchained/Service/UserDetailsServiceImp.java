@@ -49,7 +49,4 @@ public class UserDetailsServiceImp implements UserDetailsService {
         return (UserDetails) new User(user.getEmail(), user.getPassword(), emptyList());
     }
 
-    public void saveAdmin(User user) {
-        userRepository.save(user);
-    }
 }

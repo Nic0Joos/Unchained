@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 //Autor: Lennart
 
-//Inspired from https://www.youtube.com/watch?v=KeBTs5Nm0Tg
+
 
 @Service
 public class DistanceCalculatorService {

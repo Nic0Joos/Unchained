@@ -22,7 +22,7 @@ public class User {
     private int ZIPCode;
     private String city;
     @JsonIgnore
-    private int Traveldistance;
+    private int TravelDistance;
     @Email
     private String email;
     private boolean isAnAdmin;
@@ -39,7 +39,7 @@ public class User {
         this.street = street;
         this.ZIPCode = ZIPCode;
         this.city = city;
-        Traveldistance = traveldistance;
+        TravelDistance = traveldistance;
         this.email = email;
         this.isAnAdmin = isAnAdmin;
         this.password = password;
@@ -51,7 +51,7 @@ public class User {
         this.street = street;
         this.ZIPCode = ZIPCode;
         this.city = city;
-        Traveldistance = traveldistance;
+        TravelDistance = traveldistance;
         this.email = email;
         this.isAnAdmin = isAnAdmin;
         this.password = password;
@@ -93,10 +93,10 @@ public class User {
     public void setCity(String city) { this.city = city; }
 
     public int getTraveldistance() {
-        return Traveldistance;
+        return TravelDistance;
     }
     public void setTraveldistance(int traveldistance) {
-        Traveldistance = traveldistance;
+        TravelDistance = traveldistance;
     }
 
     public String getEmail() {

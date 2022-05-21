@@ -147,10 +147,10 @@
         $(document).ready(function () {
 
             $("#CalculateBtn").click(function (event) {
-                var AmountProductA = Math.ceil(Math.ceil(parseInt($("#Amount_ProductA").val()) / parseInt($("#MaxAmount_ProductA").text())) * parseInt($("#MinPallets_ProductA").text()));
-                var AmountProductB = Math.ceil(Math.ceil(parseInt($("#Amount_ProductB").val()) / parseInt($("#MaxAmount_ProductB").text())) * parseInt($("#MinPallets_ProductB").text()));
-                var AmountProductC = Math.ceil(Math.ceil(parseInt($("#Amount_ProductC").val()) / parseInt($("#MaxAmount_ProductC").text())) * parseInt($("#MinPallets_ProductC").text()));
-                var AmountProductD = Math.ceil(Math.ceil(parseInt($("#Amount_ProductD").val()) / parseInt($("#MaxAmount_ProductD").text())) * parseInt($("MinPallets_ProductD").text()));
+                var AmountProductA = Math.ceil(Math.ceil(parseInt($("#Amount_ProductA").val()) / 25) * 1.2);
+                var AmountProductB = Math.ceil(Math.ceil(parseInt($("#Amount_ProductB").val()) / 10) * 2);
+                var AmountProductC = Math.ceil(Math.ceil(parseInt($("#Amount_ProductC").val()) / 15) * 2.5);
+                var AmountProductD = Math.ceil(Math.ceil(parseInt($("#Amount_ProductD").val()) / 100) * 0.8);
                 var FinalPallets = Math.max(AmountProductA, AmountProductB, AmountProductC, AmountProductD);
                 var ProductPrice = (parseInt($("#Amount_ProductA").val()) * 13.5)
                 +(parseInt($("#Amount_ProductB").val()) * 15)
