@@ -24,7 +24,7 @@ function register(name, street, ZIPCode, city, email, password, callbackSuccess,
             "street": street,
             "ZIPCode": ZIPCode,
             "city": city,
-            "TravelDistance": 1,
+            "TravelDistance": 50,
             "email": email,
             "isAnAdmin": false,
             "password": password
