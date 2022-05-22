@@ -78,7 +78,9 @@
                 var ZIPCode = $("#ZIPCode").val();
                 console.log(ZIPCode);
                 register($("#name").val(), $("#street").val(), ($("#ZIPCode").val()), $("#city").val(), $("#email").val(), $("#password").val(), function (result) {
-                    window.location.reload();
+                    if(result){
+                        window.location.reload();
+                    }
                 });
                 event.preventDefault();
             });

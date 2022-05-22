@@ -11,7 +11,7 @@ function getCookie(name) {
 }
 
 //Author: Alex
-function register(name, street, ZIPCode, city, email, password, callbackSuccess, callbackError) {
+function register(name, street, ZIPCode, city, email, password, callback, callbackError) {
     $.ajax({
         type: "POST",
         contentType: "application/json",
@@ -30,7 +30,7 @@ function register(name, street, ZIPCode, city, email, password, callbackSuccess,
             "password": password
         }),
         success: function (data, textStatus, response) {
-            callbackSuccess(true);
+            callback(true);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(jqXHR, textStatus, errorThrown);
