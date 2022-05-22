@@ -32,25 +32,25 @@ public class User {
     public User(){}
 
 
-    public User(Long userId, String name, String street, int ZIPCode, String city, int traveldistance, String email, boolean isAnAdmin, String password) {
+    public User(Long userId, String name, String street, int ZIPCode, String city, int TravelDistance, String email, boolean isAnAdmin, String password) {
         this.userId = userId;
         this.name = name;
         this.street = street;
         this.ZIPCode = ZIPCode;
         this.city = city;
-        TravelDistance = traveldistance;
+        TravelDistance = TravelDistance;
         this.email = email;
         this.isAnAdmin = isAnAdmin;
         this.password = password;
     }
 
 
-    public User(String name, String street, int ZIPCode, String city, int traveldistance, String email, boolean isAnAdmin, String password) {
+    public User(String name, String street, int ZIPCode, String city, int TravelDistance, String email, boolean isAnAdmin, String password) {
         this.name = name;
         this.street = street;
         this.ZIPCode = ZIPCode;
         this.city = city;
-        TravelDistance = traveldistance;
+        TravelDistance = TravelDistance;
         this.email = email;
         this.isAnAdmin = isAnAdmin;
         this.password = password;

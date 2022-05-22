@@ -82,7 +82,9 @@
 
     <script language="JavaScript">
         $(document).ready(function () {
+
             $("#form").submit(function (event) {
+
                 login($('input[name=email]').val(), $('input[name=password]').val(), function (result) {
                     if(result) {
                         $("#error-modal").modal('show');

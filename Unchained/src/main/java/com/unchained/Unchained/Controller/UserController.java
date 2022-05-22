@@ -25,7 +25,7 @@ public class UserController {
     @Autowired
     LoggerService loggerService;
 
-    @PostMapping(path = "/register")
+    @PostMapping(path = "/register", consumes = {"application/json"}, produces = {"application/json"})
     public ResponseEntity<Void> postRegister(@RequestBody User user) {
         try {
             user.setTraveldistance(distanceCalculatorService.getDistance(user.getZIPCode()));
