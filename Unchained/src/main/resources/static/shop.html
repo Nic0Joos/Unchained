@@ -165,6 +165,51 @@
                 }
             });
 
+            $("#Amount_ProductB").on("input", function(){
+                if($("#Amount_ProductB").val() >60) {
+                    $("#Warning_ProductB").html("Can't be more than 60!")
+                    $("#Warning_ProductB").removeAttr("hidden");
+                    $("#CalculateBtn").prop("disabled", true);
+                } else if($("#Amount_ProductB").val() <0){
+                    $("#Warning_ProductB").html("Can't be negative!")
+                    $("#Warning_ProductB").removeAttr("hidden");
+                    $("#CalculateBtn").prop("disabled", true);
+                } else {
+                    $("#Warning_ProductB")//TODO:hide when everything is correct
+                    $("#CalculateBtn").prop("disabled", false);
+                }
+            });
+
+            $("#Amount_ProductC").on("input", function(){
+                if($("#Amount_ProductC").val() >72) {
+                    $("#Warning_ProductC").html("Can't be more than 72!")
+                    $("#Warning_ProductC").removeAttr("hidden");
+                    $("#CalculateBtn").prop("disabled", true);
+                } else if($("#Amount_ProductC").val() <0){
+                    $("#Warning_ProductC").html("Can't be negative!")
+                    $("#Warning_ProductC").removeAttr("hidden");
+                    $("#CalculateBtn").prop("disabled", true);
+                } else {
+                    $("#Warning_ProductC")//TODO:hide when everything is correct
+                    $("#CalculateBtn").prop("disabled", false);
+                }
+            });
+
+            $("#Amount_ProductD").on("input", function(){
+                if($("#Amount_ProductD").val() >1500) {
+                    $("#Warning_ProductD").html("Can't be more than 1500!")
+                    $("#Warning_ProductD").removeAttr("hidden");
+                    $("#CalculateBtn").prop("disabled", true);
+                } else if($("#Amount_ProductD").val() <0){
+                    $("#Warning_ProductD").html("Can't be negative!")
+                    $("#Warning_ProductD").removeAttr("hidden");
+                    $("#CalculateBtn").prop("disabled", true);
+                } else {
+                    $("#Warning_ProductD")//TODO:hide when everything is correct
+                    $("#CalculateBtn").prop("disabled", false);
+                }
+            });
+
             $("#CalculateBtn").click(function (event) {
                 var AmountProductA = Math.ceil(Math.ceil(parseInt($("#Amount_ProductA").val()) / 25) * 1.2);
                 var AmountProductB = Math.ceil(Math.ceil(parseInt($("#Amount_ProductB").val()) / 10) * 2);
