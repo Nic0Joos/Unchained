@@ -45,7 +45,7 @@
                                 <h4><span class="feature">Maximum Amount:&nbsp;</span><span value="25" id="MaxAmount_ProductA">25</span></h4>
                                 <h4><span class="feature">Pallets:&nbsp;</span><span value="1.2" id="MinPallets_ProductA">1.2</span></h4>
                                 <h4><span class="feature">Amount:&nbsp;</span><input id="Amount_ProductA" class="form-control-sm" type="number" value="0" min="0" max="250"  placeholder="Enter amount"></h4>
-                                <h4><p hidden id="Warning_ProductA" style="color:red">Can't be more than 250!</p></h4>
+                                <h4><p hidden id="Warning_ProductA" style="color:red"></p></h4>
                             </div>
                             <div class="price">
                                 <h4 id="Price_ProductA">CHF 13.50</h4>
@@ -149,6 +149,21 @@
 
     <script>
         $(document).ready(function () {
+
+            $("#Amount_ProductA").on("input", function(){
+                if($("#Amount_ProductA").val() >250) {
+                    $("#Warning_ProductA").html("Can't be more than 250!")
+                    $("#Warning_ProductA").removeAttr("hidden");
+                    $("#CalculateBtn").prop("disabled", true);
+                } else if($("#Amount_ProductA").val() <0){
+                    $("#Warning_ProductA").html("Can't be negative!")
+                    $("#Warning_ProductA").removeAttr("hidden");
+                    $("#CalculateBtn").prop("disabled", true);
+                } else {
+                    $("#Warning_ProductA")//TODO:hide when everything is correct
+                    $("#CalculateBtn").prop("disabled", false);
+                }
+            });
 
             $("#CalculateBtn").click(function (event) {
                 var AmountProductA = Math.ceil(Math.ceil(parseInt($("#Amount_ProductA").val()) / 25) * 1.2);
