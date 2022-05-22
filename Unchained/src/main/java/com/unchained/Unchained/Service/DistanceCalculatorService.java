@@ -2,8 +2,10 @@ package com.unchained.Unchained.Service;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
@@ -19,7 +21,9 @@ public class DistanceCalculatorService {
     public int getDistance(int ZIPCode) throws Exception {
 
         //Read and create sheet from excel
-        FileInputStream Input = new FileInputStream("src/main/resources/Distances.xlsx");
+        ClassPathResource classPathResource = new ClassPathResource("Distances.xlsx");
+        File DistanceFile = classPathResource.getFile();
+        FileInputStream Input = new FileInputStream(DistanceFile);
         XSSFWorkbook workbook = new XSSFWorkbook(Input);
         XSSFSheet sheet =  workbook.getSheet("Distances");
 

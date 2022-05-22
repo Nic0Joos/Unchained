@@ -21,7 +21,6 @@ public class User {
     private String street;
     private int ZIPCode;
     private String city;
-    @JsonIgnore
     private int TravelDistance;
     @Email
     private String email;
