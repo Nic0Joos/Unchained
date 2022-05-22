@@ -19,9 +19,9 @@ public class User {
     private Long userId;
     private String name;
     private String street;
-    private int ZIPCode;
+    private String zipCode;
     private String city;
-    private int TravelDistance;
+    private int travelDistance;
     @Email
     private String email;
     private boolean isAnAdmin;
@@ -32,35 +32,35 @@ public class User {
     public User(){}
 
 
-    public User(Long userId, String name, String street, int ZIPCode, String city, int TravelDistance, String email, boolean isAnAdmin, String password) {
+    public User(Long userId, String name, String street, String zipCode, String city, int travelDistance, String email, boolean isAnAdmin, String password) {
         this.userId = userId;
         this.name = name;
         this.street = street;
-        this.ZIPCode = ZIPCode;
+        this.zipCode = zipCode;
         this.city = city;
-        TravelDistance = TravelDistance;
+        this.travelDistance = travelDistance;
         this.email = email;
         this.isAnAdmin = isAnAdmin;
         this.password = password;
     }
 
 
-    public User(String name, String street, int ZIPCode, String city, int TravelDistance, String email, boolean isAnAdmin, String password) {
+    public User(String name, String street, String zipCode, String city, int travelDistance, String email, boolean isAnAdmin, String password) {
         this.name = name;
         this.street = street;
-        this.ZIPCode = ZIPCode;
+        this.zipCode = zipCode;
         this.city = city;
-        TravelDistance = TravelDistance;
+        this.travelDistance = travelDistance;
         this.email = email;
         this.isAnAdmin = isAnAdmin;
         this.password = password;
     }
 
 
-    public User(String name, String street, int ZIPCode, String city, String email, boolean isAnAdmin, String password) {
+    public User(String name, String street, String zipCode, String city, String email, boolean isAnAdmin, String password) {
         this.name = name;
         this.street = street;
-        this.ZIPCode = ZIPCode;
+        this.zipCode = zipCode;
         this.city = city;
         this.email = email;
         this.isAnAdmin = isAnAdmin;
@@ -81,21 +81,21 @@ public class User {
     public String getStreet() { return street; }
     public void setStreet(String street) { this.street = street; }
 
-    public int getZIPCode() {
-        return ZIPCode;
+    public String getZipCode() {
+        return zipCode;
     }
-    public void setZIPCode(int ZIPCode) {
-        this.ZIPCode = ZIPCode;
+    public void setZIPCode(String ZIPCode) {
+        this.zipCode = ZIPCode;
     }
 
     public String getCity() { return city; }
     public void setCity(String city) { this.city = city; }
 
     public int getTraveldistance() {
-        return TravelDistance;
+        return travelDistance;
     }
-    public void setTraveldistance(int traveldistance) {
-        TravelDistance = traveldistance;
+    public void setTraveldistance(int travelDistance) {
+        this.travelDistance = travelDistance;
     }
 
     public String getEmail() {

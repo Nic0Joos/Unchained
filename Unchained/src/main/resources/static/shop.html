@@ -160,7 +160,7 @@
                     $("#Warning_ProductA").removeAttr("hidden");
                     $("#CalculateBtn").prop("disabled", true);
                 } else {
-                    $("#Warning_ProductA").prop
+                    $("#Warning_ProductA").attr("hidden");
                     $("#CalculateBtn").prop("disabled", false);
                 }
             });
@@ -175,7 +175,7 @@
                     $("#Warning_ProductB").removeAttr("hidden");
                     $("#CalculateBtn").prop("disabled", true);
                 } else {
-                    $("#Warning_ProductB")//TODO:hide when everything is correct
+                    $("#Warning_ProductB").attr("hidden");
                     $("#CalculateBtn").prop("disabled", false);
                 }
             });
@@ -187,7 +187,7 @@
                     $("#CalculateBtn").prop("disabled", true);
                 } else if($("#Amount_ProductC").val() <0){
                     $("#Warning_ProductC").html("Can't be negative!")
-                    $("#Warning_ProductC").removeAttr("hidden");
+                    $("#Warning_ProductC").attr("hidden");
                     $("#CalculateBtn").prop("disabled", true);
                 } else {
                     $("#Warning_ProductC")//TODO:hide when everything is correct
@@ -202,10 +202,10 @@
                     $("#CalculateBtn").prop("disabled", true);
                 } else if($("#Amount_ProductD").val() <0){
                     $("#Warning_ProductD").html("Can't be negative!")
-                    $("#Warning_ProductD").removeAttr("hidden");
+                    $("#Warning_ProductD").attr("hidden");
                     $("#CalculateBtn").prop("disabled", true);
                 } else {
-                    $("#Warning_ProductD")//TODO:hide when everything is correct
+                    $("#Warning_ProductD").attr("hidden");
                     $("#CalculateBtn").prop("disabled", false);
                 }
             });

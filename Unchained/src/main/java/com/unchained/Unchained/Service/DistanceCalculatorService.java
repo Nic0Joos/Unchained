@@ -18,7 +18,7 @@ import java.util.HashMap;
 public class DistanceCalculatorService {
 
 
-    public int getDistance(int ZIPCode) throws Exception {
+    public int getDistance(String ZIPCode) throws Exception {
 
         //Read and create sheet from excel
         ClassPathResource classPathResource = new ClassPathResource("Distances.xlsx");
@@ -39,7 +39,7 @@ public class DistanceCalculatorService {
         }
 
         //Retrieve the kilometers from Hashmap
-        String SearchKey = Integer.toString(ZIPCode);
+        String SearchKey = ZIPCode;
         String SearchResult = Distances.get(SearchKey);
         int TravelDistance;
 

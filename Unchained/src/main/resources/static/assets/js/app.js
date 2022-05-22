@@ -22,9 +22,9 @@ function register(name, street, ZIPCode, city, email, password, callbackSuccess,
         data: JSON.stringify({
             "name": name,
             "street": street,
-            "ZIPCode": ZIPCode,
+            "zipCode": ZIPCode,
             "city": city,
-            "TravelDistance": 50,
+            "travelDistance": 0,
             "email": email,
             "isAnAdmin": false,
             "password": password

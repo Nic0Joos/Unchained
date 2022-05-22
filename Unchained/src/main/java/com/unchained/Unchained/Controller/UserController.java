@@ -28,9 +28,9 @@ public class UserController {
     @PostMapping(path = "/register", consumes = {"application/json"}, produces = {"application/json"})
     public ResponseEntity<Void> postRegister(@RequestBody User user) {
         try {
-            user.setTraveldistance(distanceCalculatorService.getDistance(user.getZIPCode()));
+            user.setTraveldistance(distanceCalculatorService.getDistance(user.getZipCode()));
             userService.saveUser(user);
-            loggerService.logUser("User: " + user + "was created.");
+            loggerService.logUser("User: " + user.getName() + " was created with Traveldistance: "+ user.getTraveldistance());
         } catch (Exception e) {
             loggerService.logSystem("warning", e.toString());
             new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
