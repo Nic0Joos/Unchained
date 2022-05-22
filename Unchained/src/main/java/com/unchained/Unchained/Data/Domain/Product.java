@@ -38,10 +38,10 @@ public class Product {
         this.price = price;
     }
 
+    //getter and setter
     public Long getProductId() {
         return productId;
     }
-
     public void setProductId(Long productId) {
         this.productId = productId;
     }
@@ -49,7 +49,6 @@ public class Product {
     public String getProductName() {
         return productName;
     }
-
     public void setProductName(String productName) {
         this.productName = productName;
     }
@@ -57,7 +56,6 @@ public class Product {
     public Long getMaxAmount() {
         return maxAmount;
     }
-
     public void setMaxAmount(Long maxAmount) {
         this.maxAmount = maxAmount;
     }
@@ -65,7 +63,6 @@ public class Product {
     public Double getMinPalletSpace() {
         return minPalletSpace;
     }
-
     public void setMinPalletSpace(Double minPalletSpace) {
         this.minPalletSpace = minPalletSpace;
     }
@@ -73,7 +70,6 @@ public class Product {
     public Double getPrice() {
         return price;
     }
-
     public void setPrice(Double price) {
         this.price = price;
     }
