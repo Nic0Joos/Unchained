@@ -1,16 +1,13 @@
 package com.unchained.Unchained.Service;
 
-import com.unchained.Unchained.Data.Domain.User;
+import com.unchained.Unchained.Data.Domain.UnchainedUser;
 import com.unchained.Unchained.Data.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import javax.validation.Valid;
 
 import static java.util.Collections.emptyList;
 
@@ -25,11 +22,11 @@ public class UserDetailsServiceImp implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByEmail(username);
-        if (user == null) {
+        UnchainedUser unchainedUser = userRepository.findByEmail(username);
+        if (unchainedUser == null) {
             throw new UsernameNotFoundException(username);
         }
-        return (UserDetails) new User(user.getEmail(), user.getPassword(), emptyList());
+        return new User(unchainedUser.getEmail(), unchainedUser.getPassword(), emptyList());
     }
 
 }

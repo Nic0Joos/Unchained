@@ -87,8 +87,7 @@
 
                 login($('input[name=email]').val(), $('input[name=password]').val(), function (result) {
                     if(result) {
-                        $("#error-modal").modal('show');
-                        $("#error-text").text("Good credentials!");
+                        window.location.replace("../");
                     }
                     else {
                         $("#error-modal").modal('show');

@@ -73,12 +73,12 @@
     <script src="assets/js/vanilla-zoom.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/app.js"></script>
-    <!--<script language="JavaScript">
+    <script language="JavaScript">
     validateLogin(function (result) {
     if (!result) {
     window.location.replace("../login");
     }
-    });-->
+    });
     </script>
 
     <script language="JavaScript">
@@ -91,7 +91,7 @@
 
             $("#form").submit(function (event) {
                 putProfile($('input[street=street]').val(), $('input[ZIPCode=ZIPCode]').val(), $('input[city=city]').val(), $('input[password=password]').val(), function (result) {
-                    window.location.replace("/user");
+                    window.location.replace("/unchainedUser");
                 }, function (error) {
                     window.alert("Something went wrong!");
                 });

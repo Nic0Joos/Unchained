@@ -1,10 +1,9 @@
 package com.unchained.Unchained.Controller;
 
 
-import com.unchained.Unchained.Data.Domain.User;
+import com.unchained.Unchained.Data.Domain.UnchainedUser;
 import com.unchained.Unchained.Service.DistanceCalculatorService;
 import com.unchained.Unchained.Service.LoggerService;
-import com.unchained.Unchained.Service.UserDetailsServiceImp;
 import com.unchained.Unchained.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,11 +26,11 @@ public class UserController {
     LoggerService loggerService;
 
     @PostMapping(path = "/register", consumes = {"application/json"}, produces = {"application/json"})
-    public ResponseEntity<Void> postRegister(@RequestBody User user) {
+    public ResponseEntity<Void> postRegister(@RequestBody UnchainedUser unchainedUser) {
         try {
-            user.setTraveldistance(distanceCalculatorService.getDistance(user.getZipCode()));
-            userService.saveUser(user);
-            loggerService.logUser("User: " + user.getName() + " was created with Traveldistance: "+ user.getTraveldistance());
+            unchainedUser.setTraveldistance(distanceCalculatorService.getDistance(unchainedUser.getZipCode()));
+            userService.saveUser(unchainedUser);
+            loggerService.logUser("User: " + unchainedUser.getName() + " was created with Traveldistance: "+ unchainedUser.getTraveldistance());
         } catch (Exception e) {
             loggerService.logSystem("warning", e.toString());
             new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
@@ -40,18 +39,19 @@ public class UserController {
     }
 
     @PutMapping(path = "/profile")
-    public ResponseEntity<User> putUser(@RequestBody User user) {
+    public ResponseEntity<UnchainedUser> putUser(@RequestBody UnchainedUser unchainedUser) {
         try {
-            user.setUserId(userService.getCurrentUser().getUserId());
+            unchainedUser.setUserId(userService.getCurrentUser().getUserId());
         } catch (Exception e) {
-            loggerService.logUser("User profile of " + user + "was changed.");
+            loggerService.logUser("User profile of " + unchainedUser + "was changed.");
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
         }
         return ResponseEntity.ok().build();
     }
 
     @GetMapping(path = "/profile", produces = "application/json")
-    public @ResponseBody User getProfile() {
+    public @ResponseBody
+    UnchainedUser getProfile() {
         return userService.getCurrentUser();
     }
 

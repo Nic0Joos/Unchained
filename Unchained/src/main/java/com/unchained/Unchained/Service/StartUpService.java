@@ -1,8 +1,7 @@
 package com.unchained.Unchained.Service;
 
 import com.unchained.Unchained.Data.Domain.Product;
-import com.unchained.Unchained.Data.Domain.User;
-import com.unchained.Unchained.config.SwaggerConfig;
+import com.unchained.Unchained.Data.Domain.UnchainedUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
@@ -34,7 +33,7 @@ public class StartUpService implements ApplicationListener<ApplicationReadyEvent
     private void createAdmin() {
 
         try {
-            userService.saveUser(new User("admin", "Peter-Merian-Strasse 86", "4052", "Basel", 1, "admin@unchained.com", true, passwordEncoder.encode("adminpassword")));
+            userService.saveUser(new UnchainedUser("admin", "Peter-Merian-Strasse 86", "4052", "Basel", 1, "admin@unchained.com", true, passwordEncoder.encode("adminpassword")));
             loggerService.logUser("Default Admin created");
         } catch (Exception e) {
             loggerService.logSystem("info", "Default admin creation failed");

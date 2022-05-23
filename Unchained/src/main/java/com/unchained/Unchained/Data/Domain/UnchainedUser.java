@@ -12,7 +12,7 @@ import java.util.List;
 
 //Author: Alex
 @Entity
-public class User {
+public class UnchainedUser {
 
     @Id
     @GeneratedValue
@@ -29,10 +29,10 @@ public class User {
     private String password;
 
 
-    public User(){}
+    public UnchainedUser(){}
 
 
-    public User(Long userId, String name, String street, String zipCode, String city, int travelDistance, String email, boolean isAnAdmin, String password) {
+    public UnchainedUser(Long userId, String name, String street, String zipCode, String city, int travelDistance, String email, boolean isAnAdmin, String password) {
         this.userId = userId;
         this.name = name;
         this.street = street;
@@ -45,7 +45,7 @@ public class User {
     }
 
 
-    public User(String name, String street, String zipCode, String city, int travelDistance, String email, boolean isAnAdmin, String password) {
+    public UnchainedUser(String name, String street, String zipCode, String city, int travelDistance, String email, boolean isAnAdmin, String password) {
         this.name = name;
         this.street = street;
         this.zipCode = zipCode;
@@ -57,7 +57,7 @@ public class User {
     }
 
 
-    public User(String name, String street, String zipCode, String city, String email, boolean isAnAdmin, String password) {
+    public UnchainedUser(String name, String street, String zipCode, String city, String email, boolean isAnAdmin, String password) {
         this.name = name;
         this.street = street;
         this.zipCode = zipCode;
@@ -67,8 +67,6 @@ public class User {
         this.password = password;
     }
 
-    public <T> User(String email, String password, List<T> emptyList) {
-    }
 
 
     //getter and setter

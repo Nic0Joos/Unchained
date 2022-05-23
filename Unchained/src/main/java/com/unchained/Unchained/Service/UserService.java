@@ -1,6 +1,6 @@
 package com.unchained.Unchained.Service;
 
-import com.unchained.Unchained.Data.Domain.User;
+import com.unchained.Unchained.Data.Domain.UnchainedUser;
 import com.unchained.Unchained.Data.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,17 +18,17 @@ public class UserService {
     private PasswordEncoder passwordEncoder;
 
 
-    public void saveUser(@Valid User user) throws Exception {
-        if (user.getUserId() == null) {
-            if (userRepository.findByEmail(user.getEmail()) != null ) {
+    public void saveUser(@Valid UnchainedUser unchainedUser) throws Exception {
+        if (unchainedUser.getUserId() == null) {
+            if (userRepository.findByEmail(unchainedUser.getEmail()) != null ) {
                 throw new Exception("User email already exists!");
             }
         }
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userRepository.save(user);
+        unchainedUser.setPassword(passwordEncoder.encode(unchainedUser.getPassword()));
+        userRepository.save(unchainedUser);
     }
 
-    public User getCurrentUser() {
+    public UnchainedUser getCurrentUser() {
         String userEmail = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return userRepository.findByEmail(userEmail);
     }
