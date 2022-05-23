@@ -10,7 +10,7 @@ function getCookie(name) {
     if (match) return match[2];
 }
 
-//Author: Alex
+//Author: Alex Herzog
 function register(name, street, ZIPCode, city, email, password, callback, callbackError) {
     $.ajax({
         type: "POST",

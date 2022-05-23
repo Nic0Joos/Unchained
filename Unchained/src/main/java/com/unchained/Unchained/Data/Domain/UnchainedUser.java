@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import java.util.List;
 
-//Author: Alex
+//Author: Alex Herzog
 @Entity
 public class UnchainedUser {
 
