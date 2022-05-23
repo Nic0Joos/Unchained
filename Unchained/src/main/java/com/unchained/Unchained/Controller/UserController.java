@@ -5,6 +5,7 @@ import com.unchained.Unchained.Data.Domain.User;
 import com.unchained.Unchained.Service.DistanceCalculatorService;
 import com.unchained.Unchained.Service.LoggerService;
 import com.unchained.Unchained.Service.UserDetailsServiceImp;
+import com.unchained.Unchained.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ import org.springframework.web.server.ResponseStatusException;
 public class UserController {
 
     @Autowired
-    UserDetailsServiceImp userService;
+    UserService userService;
 
     @Autowired
     DistanceCalculatorService distanceCalculatorService;

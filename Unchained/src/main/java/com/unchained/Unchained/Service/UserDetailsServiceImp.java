@@ -21,24 +21,7 @@ public class UserDetailsServiceImp implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
-
-    public void saveUser(@Valid User user) throws Exception {
-        if (user.getUserId() == null) {
-            if (userRepository.findByEmail(user.getEmail()) != null ) {
-                throw new Exception("User email already exists!");
-            }
-        }
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userRepository.save(user);
-    }
-
-    public User getCurrentUser() {
-        String userEmail = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return userRepository.findByEmail(userEmail);
-    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

@@ -14,7 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class StartUpService implements ApplicationListener<ApplicationReadyEvent> {
 
     @Autowired
-    UserDetailsServiceImp userDetailsServiceImp;
+    UserService userService;
 
     @Autowired
     ProductService productService;
@@ -34,7 +34,7 @@ public class StartUpService implements ApplicationListener<ApplicationReadyEvent
     private void createAdmin() {
 
         try {
-            userDetailsServiceImp.saveUser(new User("admin", "Peter-Merian-Strasse 86", "4052", "Basel", 1, "admin@unchained.com", true, passwordEncoder.encode("adminpassword")));
+            userService.saveUser(new User("admin", "Peter-Merian-Strasse 86", "4052", "Basel", 1, "admin@unchained.com", true, passwordEncoder.encode("adminpassword")));
             loggerService.logUser("Default Admin created");
         } catch (Exception e) {
             loggerService.logSystem("info", "Default admin creation failed");
